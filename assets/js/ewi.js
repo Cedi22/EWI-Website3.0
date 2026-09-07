@@ -3,12 +3,17 @@
   'use strict';
 
   var d = document;
+  var finishLoading = function () {
+    if (d.body) d.body.classList.remove('is-loading');
+  };
+  if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', finishLoading, { once: true });
+  else finishLoading();
+  window.addEventListener('load', finishLoading, { once: true });
+  window.addEventListener('pageshow', finishLoading, { once: true });
+
+  var init = function () {
 
   /* ---- initial page loading ----------------------------------------- */
-  var finishLoading = function () { d.body.classList.remove('is-loading'); };
-  if (d.readyState === 'complete') finishLoading();
-  else window.addEventListener('load', finishLoading, { once: true });
-
   /* ---- image sliders ------------------------------------------------- */
   Array.prototype.forEach.call(d.querySelectorAll('[data-slider]'), function (slider) {
     var slides = slider.querySelectorAll('.hero-slide, .lab-slide');
@@ -90,8 +95,13 @@
   /* ---- sticky header shadow ----------------------------------------- */
   var header = d.querySelector('.site-header');
   if (header) {
+    var scrollFrame = 0;
     var onScroll = function () {
-      header.classList.toggle('is-stuck', window.scrollY > 8);
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(function () {
+        header.classList.toggle('is-stuck', window.scrollY > 8);
+        scrollFrame = 0;
+      });
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -145,7 +155,7 @@
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reducedMotion) {
     Array.prototype.forEach.call(d.querySelectorAll('.marquee-track'), function (track) {
-      if (track.dataset.cloned) return;
+      if (track.dataset.cloned || track.closest('.marquee--clients')) return;
       track.dataset.cloned = '1';
       track.innerHTML += track.innerHTML;
     });
@@ -165,4 +175,8 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', drawIcons);
   else drawIcons();
   window.addEventListener('load', drawIcons);
+  };
+
+  if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', init, { once: true });
+  else init();
 })();

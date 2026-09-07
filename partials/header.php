@@ -11,6 +11,7 @@ if (!isset($title))     { $title = 'East West Trading International'; }
 if (!isset($desc))      { $desc = 'Technology, laboratory and electrical distribution in Qatar since 2002.'; }
 if (!isset($page))      { $page = ''; }
 if (!isset($canonical)) { $canonical = 'https://www.eastwestint.qa/'; }
+$asset_version = '20260907.1';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@ if (!isset($canonical)) { $canonical = 'https://www.eastwestint.qa/'; }
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/css/ewi.css">
+<link rel="stylesheet" href="assets/css/ewi.css?v=<?php echo $asset_version; ?>">
 <script>document.documentElement.className += ' js';</script>
 <script type="application/ld+json">
 {

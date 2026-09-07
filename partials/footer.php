@@ -54,6 +54,6 @@
 </a>
 
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
-<script src="assets/js/ewi.js"></script>
+<script src="assets/js/ewi.js?v=<?php echo $asset_version; ?>"></script>
 </body>
 </html>

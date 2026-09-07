@@ -46,11 +46,7 @@ include __DIR__ . '/partials/header.php';
       </div>
       <figure class="figure figure--wide lab-slider blueprint reveal" data-slider data-interval="5200" aria-label="Laboratory systems projects">
         <div class="lab-slides">
-          <img class="lab-slide is-active" src="assets/slides/lab/Capture5.png" alt="Scientific laboratory equipment">
-          <img class="lab-slide" src="assets/slides/lab/Capture6.png" alt="Laboratory workspaces and equipment" loading="lazy">
-          <img class="lab-slide" src="assets/slides/lab/Capture7.png" alt="Advanced laboratory instrumentation" loading="lazy">
-          <img class="lab-slide" src="assets/slides/lab/Capture8.png" alt="Materials analysis laboratory" loading="lazy">
-          <img class="lab-slide" src="assets/slides/lab/Capture9.png" alt="Modern laboratory benches" loading="lazy">
+          <img class="lab-slide is-active" src="assets/lab-placeholder.jpg" alt="Laboratory systems placeholder">
         </div>
         <div class="slider-dots" aria-label="Laboratory project slides"></div>
       </figure>
