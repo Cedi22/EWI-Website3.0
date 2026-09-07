@@ -8,17 +8,14 @@ include __DIR__ . '/partials/header.php';
 
 <section class="hero hero--slider" data-slider data-interval="3500" aria-label="East West Trading International projects">
   <div class="hero-slides">
-    <figure class="hero-slide is-active"><img src="assets/slides/homepage/Doha-Metro-tunnel.jpeg" alt="Doha Metro tunnel infrastructure"><figcaption><p class="hero-badge">Established in Doha, 2002</p><h1>East West Trading International <em>Excellence Through Innovation</em></h1><p class="hero-lede">Technology distribution for Qatar&rsquo;s critical projects.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/Al-Thumama-Stadium.jpeg" alt="Al Thumama Stadium in Doha"><figcaption><p class="hero-badge">Built for Qatar&rsquo;s critical projects</p><h1>Solutions that perform <em>where it matters</em></h1><p class="hero-lede">Specialist supply and technical support for infrastructure, research and industry.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/EXQ-h4eWAAMdbXq.jpeg" alt="Qatar infrastructure project at dusk"><figcaption><p class="hero-badge">One accountable supplier</p><h1>From specification <em>to handover</em></h1><p class="hero-lede">Three specialist divisions, one Qatari team standing behind the delivery.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/Hamad-International-Airport-Expansion-hero.jpg" alt="Hamad International Airport expansion"><figcaption><p class="hero-badge">Project sales and technical service</p><h1>Supporting the systems <em>that move Qatar</em></h1><p class="hero-lede">We hold stock, quote fast and support the work beyond the order.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/Stadium974.jpeg" alt="Stadium 974 in Doha"><figcaption><p class="hero-badge">East West Trading International</p><h1>Engineering confidence <em>through every stage</em></h1><p class="hero-lede">Laboratory, electrical and cyber security solutions for demanding environments.</p></figcaption></figure>
+    <figure class="hero-slide is-active"><img src="assets/slides/homepage/Doha-Metro-tunnel.jpeg" alt="Doha Metro tunnel infrastructure" fetchpriority="high"><figcaption><p class="hero-badge">Established in Doha, 2002</p><h1>East West Trading International <em>Excellence Through Innovation</em></h1><p class="hero-lede">Technology distribution for Qatar&rsquo;s critical projects.</p></figcaption></figure>
+    <figure class="hero-slide"><img src="assets/slides/homepage/Al-Thumama-Stadium.jpeg" alt="Al Thumama Stadium in Doha" loading="lazy"><figcaption><p class="hero-badge">Built for Qatar&rsquo;s critical projects</p><h1>Solutions that perform <em>where it matters</em></h1><p class="hero-lede">Specialist supply and technical support for infrastructure, research and industry.</p></figcaption></figure>
+    <figure class="hero-slide"><img src="assets/slides/homepage/EXQ-h4eWAAMdbXq.jpeg" alt="Qatar infrastructure project at dusk" loading="lazy"><figcaption><p class="hero-badge">One accountable supplier</p><h1>From specification <em>to handover</em></h1><p class="hero-lede">Three specialist divisions, one Qatari team standing behind the delivery.</p></figcaption></figure>
+    <figure class="hero-slide"><img src="assets/slides/homepage/Hamad-International-Airport-Expansion-hero.jpg" alt="Hamad International Airport expansion" loading="lazy"><figcaption><p class="hero-badge">Project sales and technical service</p><h1>Supporting the systems <em>that move Qatar</em></h1><p class="hero-lede">We hold stock, quote fast and support the work beyond the order.</p></figcaption></figure>
+    <figure class="hero-slide"><img src="assets/slides/homepage/Stadium974.jpeg" alt="Stadium 974 in Doha" loading="lazy"><figcaption><p class="hero-badge">East West Trading International</p><h1>Engineering confidence <em>through every stage</em></h1><p class="hero-lede">Laboratory, electrical and cyber security solutions for demanding environments.</p></figcaption></figure>
   </div>
   <div class="hero-controls" aria-label="Project slides">
-    <button type="button" class="slider-arrow slider-prev" aria-label="Previous slide"><i data-lucide="arrow-left"></i></button>
     <div class="slider-dots"></div>
-    <span class="slider-timer" aria-label="Next slide timer"><span></span></span>
-    <button type="button" class="slider-arrow slider-next" aria-label="Next slide"><i data-lucide="arrow-right"></i></button>
   </div>
 </section>
 
@@ -26,7 +23,7 @@ include __DIR__ . '/partials/header.php';
   <div class="wrap">
     <a class="div-card blueprint reveal" href="divisions.php#lab">
       <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-      <i class="div-icon" data-lucide="flask-conical"></i>
+      <img class="div-icon" src="assets/icons/lab.png" alt="Lab Systems logo" loading="lazy" width="40" height="40">
       <span class="num">01 / LAB SYSTEMS</span>
       <h3>Lab Systems</h3>
       <p>Turnkey laboratory projects, scientific instrumentation, fume hoods, furniture and automation for research, energy and healthcare.</p>
@@ -35,7 +32,7 @@ include __DIR__ . '/partials/header.php';
 
     <a class="div-card blueprint reveal" href="divisions.php#electrical">
       <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-      <i class="div-icon" data-lucide="zap"></i>
+      <img class="div-icon" src="assets/icons/electrical.png" alt="Electrical Division logo" loading="lazy" width="40" height="40">
       <span class="num">02 / ELECTRICAL</span>
       <h3>Electrical Division</h3>
       <p>Cable management, enclosures, terminal blocks, identification, hose and site tooling for contractors and maintenance teams.</p>
@@ -44,7 +41,7 @@ include __DIR__ . '/partials/header.php';
 
     <a class="div-card blueprint reveal" href="divisions.php#cyber">
       <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-      <i class="div-icon" data-lucide="shield-check"></i>
+      <img class="div-icon" src="assets/icons/cybersecurity.png" alt="Cyber Security logo" loading="lazy" width="40" height="40">
       <span class="num">03 / CYBER SECURITY</span>
       <h3>Cyber Security</h3>
       <p>Network visibility and threat detection with NEOX Networks and Stamus Networks, delivered with professional services.</p>
@@ -118,37 +115,37 @@ include __DIR__ . '/partials/header.php';
     <div class="grid grid-3">
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="package"></i>
+        <i class="card-icon icon-box"></i>
         <h4>Project sales &amp; supply</h4>
         <p>Bill-of-quantity pricing, submittals and staged delivery aligned to your programme.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="building-2"></i>
+        <i class="card-icon icon-turnkey"></i>
         <h4>Turnkey lab fit-out</h4>
         <p>Layout, casework, fume extraction, services and instrumentation delivered as one package.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="wrench"></i>
+        <i class="card-icon icon-installation"></i>
         <h4>Installation &amp; commissioning</h4>
         <p>Site works, IQ/OQ, validation and handover by our own technical engineers.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="gauge"></i>
+        <i class="card-icon icon-gauge"></i>
         <h4>Calibration &amp; maintenance</h4>
         <p>Annual contracts, preventive schedules and spare-part planning for installed base.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="cable"></i>
+        <i class="card-icon icon-electrical-materials"></i>
         <h4>Electrical materials supply</h4>
         <p>Conduit, fittings, enclosures, terminals, labelling and tooling from stock.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="shield-check"></i>
+        <i class="card-icon icon-cybersecurity"></i>
         <h4>Cyber professional services</h4>
         <p>Deployment, tuning and knowledge transfer for network visibility and detection platforms.</p>
       </div>
@@ -165,21 +162,21 @@ include __DIR__ . '/partials/header.php';
       <h2>Brands we represent</h2>
     </div>
   </div>
-  <div class="marquee" data-slider="logos" data-interval="5000" aria-label="Principal brands">
+  <div class="marquee" aria-label="Principal brands">
     <div class="marquee-track">
-      <span class="logo-cell"><img src="assets/logos/partners/lab/thermo-fisher.png" alt="Thermo Fisher Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/duran.png" alt="DURAN Group" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/kewaunee.png" alt="Kewaunee Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/netzsch.jpg" alt="NETZSCH" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/oxford-instruments.png" alt="Oxford Instruments" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/mts-systems.png" alt="MTS Systems" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="Weidmüller" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/thermo-fisher.png" alt="Thermo Fisher Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/duran.png" alt="DURAN Group" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/kewaunee.png" alt="Kewaunee Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/netzsch.jpg" alt="NETZSCH" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/oxford-instruments.png" alt="Oxford Instruments" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/mts-systems.png" alt="MTS Systems" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="WeidmÃ¼ller" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" width="190" height="96" loading="lazy"></span>
     </div>
   </div>
   <div class="wrap" style="margin-top:var(--space-8)">
@@ -197,20 +194,20 @@ include __DIR__ . '/partials/header.php';
       <p>Ministries, national energy companies, hospitals, universities and the contractors who build for them.</p>
     </div>
 
-    <div class="marquee marquee--clients reveal" data-slider="logos" data-interval="5000" aria-label="Track record clients">
+    <div class="marquee marquee--clients marquee--reverse reveal" aria-label="Track record clients">
       <div class="marquee-track">
-      <span class="logo-cell"><img src="assets/logos/clients/qatarenergy.png" alt="QatarEnergy" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/kahramaa.png" alt="Kahramaa" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/ashghal.png" alt="Ashghal — Public Works Authority" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/hamad-medical.png" alt="Hamad Medical Corporation" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/qatar-university.png" alt="Qatar University" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/qatar-foundation.png" alt="Qatar Foundation" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/sidra.jpg" alt="Sidra Medicine" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/qatar-rail.png" alt="Qatar Rail" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/hamad-airport.svg" alt="Hamad International Airport" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/qapco.png" alt="QAPCO" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/shell.jpg" alt="Shell" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/totalenergies.svg" alt="TotalEnergies" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/qatarenergy.png" alt="QatarEnergy" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/kahramaa.png" alt="Kahramaa" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/ashghal.png" alt="Ashghal â€” Public Works Authority" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/hamad-medical.png" alt="Hamad Medical Corporation" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/qatar-university.png" alt="Qatar University" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/qatar-foundation.png" alt="Qatar Foundation" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/sidra.jpg" alt="Sidra Medicine" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/qatar-rail.png" alt="Qatar Rail" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/hamad-airport.svg" alt="Hamad International Airport" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/qapco.png" alt="QAPCO" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/shell.jpg" alt="Shell" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/totalenergies.svg" alt="TotalEnergies" width="190" height="96" loading="lazy"></span>
       </div>
     </div>
 
@@ -218,7 +215,7 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="section section--dark on-dark">
+<section class="section section--dark on-dark has-bg" style="background-image:url('assets/placeholders/background/principal-partner-home.jpg')">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="kicker">Why EWI</p>
@@ -227,25 +224,25 @@ include __DIR__ . '/partials/header.php';
     <div class="grid grid-4">
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="truck"></i>
+        <i class="card-icon icon-moving-truck"></i>
         <h4>Stock on your doorstep</h4>
         <p>Material held locally for projects, construction and maintenance &mdash; not quoted from a catalogue abroad.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="users"></i>
+        <i class="card-icon icon-persons"></i>
         <h4>Engineers, not order takers</h4>
         <p>Sales and technical engineers who can read a specification and challenge it where it matters.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="badge-check"></i>
+        <i class="card-icon icon-authorize"></i>
         <h4>Authorised representation</h4>
         <p>Direct principal relationships mean genuine product, valid warranty and factory-backed support.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="map-pin"></i>
+        <i class="card-icon icon-location"></i>
         <h4>Qatari establishment</h4>
         <p>Registered, local and accountable &mdash; with the approvals that public-sector tendering requires.</p>
       </div>
@@ -253,7 +250,7 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="cta on-dark">
+<section class="cta on-dark has-bg" style="background-image:url('assets/placeholders/background/specification.jpg')">
   <div class="wrap">
     <div class="reveal">
       <p class="kicker">Next step</p>

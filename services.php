@@ -6,7 +6,7 @@ $canonical = 'https://www.eastwestint.qa/services.php';
 include __DIR__ . '/partials/header.php';
 ?>
 
-<section class="page-hero on-dark">
+<section class="page-hero on-dark has-bg" style="background-image:url('assets/placeholders/background/solutions-services.jpg')">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.php">Home</a><span>/</span>Services
@@ -27,73 +27,73 @@ include __DIR__ . '/partials/header.php';
     <div class="grid grid-3">
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="package"></i>
+        <i class="card-icon icon-box"></i>
         <h4>Project sales &amp; supply</h4>
         <p>Bill-of-quantity pricing, technical submittals for consultant approval, and staged delivery aligned to your construction programme.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="building-2"></i>
+        <i class="card-icon icon-turnkey"></i>
         <h4>Turnkey lab fit-out</h4>
         <p>Layout development, casework, fume extraction, services coordination and instrumentation delivered as a single package with one handover.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="layout-grid"></i>
+        <i class="card-icon icon-lab-furniture"></i>
         <h4>Lab furniture &amp; fume hoods</h4>
         <p>Benching, storage, safety cabinets, fume hoods and glove boxes specified to the chemistry and the airflow, not to a brochure page.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="bot"></i>
+        <i class="card-icon icon-lab-automation"></i>
         <h4>Lab automation</h4>
         <p>Sample handling, prep and throughput automation for laboratories under rising workload without rising headcount.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="microscope"></i>
+        <i class="card-icon icon-lab"></i>
         <h4>Scientific instrumentation</h4>
         <p>Analytical, thermal, mechanical testing and materials characterisation instruments, with application support behind the selection.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="stethoscope"></i>
+        <i class="card-icon icon-stethoscope"></i>
         <h4>Medical &amp; healthcare equipment</h4>
         <p>Clinical and diagnostic laboratory equipment and consumables for hospitals, clinics and public health laboratories.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="box"></i>
+        <i class="card-icon icon-electrical-materials"></i>
         <h4>Electrical materials supply</h4>
         <p>Conduit, fittings, terminations, labelling, hose and tooling held in Doha for projects, construction and maintenance works.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="cable"></i>
+        <i class="card-icon icon-cables"></i>
         <h4>Cable management &amp; enclosures</h4>
         <p>Tray, trunking, conduit systems and IP-rated enclosures selected for the environment they will actually sit in.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="wrench"></i>
+        <i class="card-icon icon-installation"></i>
         <h4>Installation &amp; commissioning</h4>
         <p>Site works, installation qualification, validation and handover documentation carried out by our own technical engineers.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="gauge"></i>
+        <i class="card-icon icon-gauge"></i>
         <h4>Calibration &amp; maintenance contracts</h4>
         <p>Annual service agreements, preventive schedules, calibration cycles and spare-part planning for your installed base.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="shield-check"></i>
+        <i class="card-icon icon-cybersecurity"></i>
         <h4>Cyber professional services</h4>
         <p>Design, deployment, tuning, SIEM integration and operator knowledge transfer for network visibility and detection platforms.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="graduation-cap"></i>
+        <i class="card-icon icon-mortarboard"></i>
         <h4>Product training</h4>
         <p>Operator and maintainer training delivered with the principal, on your equipment, in your facility.</p>
       </div>
@@ -101,7 +101,7 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="section section--dark on-dark">
+<section class="section section--dark on-dark has-bg" style="background-image:url('assets/placeholders/background/process-services.jpg')">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="kicker">Process</p>
@@ -136,7 +136,7 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="cta on-dark">
+<section class="cta on-dark has-bg" style="background-image:url('assets/placeholders/background/scope-to-price-services.jpg')">
   <div class="wrap">
     <div class="reveal">
       <p class="kicker">Next step</p>

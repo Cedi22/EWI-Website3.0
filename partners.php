@@ -1,12 +1,12 @@
 <?php
 $title = 'Partners &mdash; Brands EWI Represents in Qatar';
-$desc = 'The principals EWI represents in Qatar across Lab Systems, the Electrical Division and Cyber Security — including Thermo Fisher, DURAN, Kewaunee, NETZSCH, Oxford Instruments, MTS, Atkore, Weidm&uuml;ller, Hensel, Brady, NEOX Networks and Stamus Networks.';
+$desc = 'The principals EWI represents in Qatar across Lab Systems, the Electrical Division and Cyber Security â€” including Thermo Fisher, DURAN, Kewaunee, NETZSCH, Oxford Instruments, MTS, Atkore, Weidm&uuml;ller, Hensel, Brady, NEOX Networks and Stamus Networks.';
 $page = 'partners';
 $canonical = 'https://www.eastwestint.qa/partners.php';
 include __DIR__ . '/partials/header.php';
 ?>
 
-<section class="page-hero on-dark">
+<section class="page-hero on-dark has-bg" style="background-image:url('assets/placeholders/background/partners-partner.jpg')">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.php">Home</a><span>/</span>Partners
@@ -14,9 +14,9 @@ include __DIR__ . '/partials/header.php';
     <h1>The principals behind our quotations</h1>
     <p>We represent manufacturers rather than aggregate catalogues. Every brand here comes with factory training, genuine product, valid warranty and a route to escalate when a project needs it.</p>
     <div class="anchors">
-      <a href="#lab"><i data-lucide="flask-conical"></i>Lab Systems</a>
-      <a href="#electrical"><i data-lucide="zap"></i>Electrical</a>
-      <a href="#cyber"><i data-lucide="shield-check"></i>Cyber Security</a>
+      <a href="#lab"><i class="icon-lab"></i>Lab Systems</a>
+      <a href="#electrical"><i class="icon-electrical"></i>Electrical</a>
+      <a href="#cyber"><i class="icon-cybersecurity"></i>Cyber Security</a>
     </div>
   </div>
 </section>
@@ -31,16 +31,16 @@ include __DIR__ . '/partials/header.php';
       <p>Instrumentation, glassware, furniture, thermal analysis, materials testing and controlled-atmosphere systems.</p>
     </div>
     <div class="logo-grid reveal">
-      <span class="logo-cell"><img src="assets/logos/partners/lab/thermo-fisher.png" alt="Thermo Fisher Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/fisher-scientific.png" alt="Fisher Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/duran.png" alt="DURAN Group" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/kewaunee.png" alt="Kewaunee Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/netzsch.jpg" alt="NETZSCH" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/oxford-instruments.png" alt="Oxford Instruments" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/mts-systems.png" alt="MTS Systems" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/mbraun.jpg" alt="MBRAUN" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/innovatest.png" alt="INNOVATEST" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/mirotrac.jpg" alt="Mirotrac MRB" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/thermo-fisher.png" alt="Thermo Fisher Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/fisher-scientific.png" alt="Fisher Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/duran.png" alt="DURAN Group" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/kewaunee.png" alt="Kewaunee Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/netzsch.jpg" alt="NETZSCH" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/oxford-instruments.png" alt="Oxford Instruments" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/mts-systems.png" alt="MTS Systems" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/mbraun.jpg" alt="MBRAUN" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/innovatest.png" alt="INNOVATEST" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/mirotrac.jpg" alt="Mirotrac MRB" width="190" height="96" loading="lazy"></span>
     </div>
     <p style="margin-top:var(--space-8)"><a class="arrow-link" href="divisions.php#lab">About the Lab Systems division <i data-lucide="arrow-right"></i></a></p>
   </div>
@@ -56,17 +56,17 @@ include __DIR__ . '/partials/header.php';
       <p>Cable management, enclosures, connectivity, identification, high-voltage test equipment, hose and site tooling.</p>
     </div>
     <div class="logo-grid reveal">
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="Weidmüller" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/ideal.png" alt="IDEAL Industries" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/high-voltage.png" alt="High Voltage Inc." loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/coilhose.png" alt="Coilhose Pneumatics" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/kingsmill.png" alt="Kingsmill Industries" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/metal-hose.jpg" alt="International Metal Hose" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/creative-composites.svg" alt="Creative Composites Group" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="WeidmÃ¼ller" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/ideal.png" alt="IDEAL Industries" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/high-voltage.png" alt="High Voltage Inc." width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/coilhose.png" alt="Coilhose Pneumatics" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/kingsmill.png" alt="Kingsmill Industries" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/metal-hose.jpg" alt="International Metal Hose" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/creative-composites.svg" alt="Creative Composites Group" width="190" height="96" loading="lazy"></span>
     </div>
     <p style="margin-top:var(--space-8)"><a class="arrow-link" href="divisions.php#electrical">About the Electrical division <i data-lucide="arrow-right"></i></a></p>
   </div>
@@ -84,13 +84,13 @@ include __DIR__ . '/partials/header.php';
     <div class="grid grid-2">
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" style="max-height:46px;width:auto;margin-bottom:var(--space-3)" loading="lazy">
+        <img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" style="max-height:46px;width:auto;margin-bottom:var(--space-3)" width="190" height="96" loading="lazy">
         <h4>NEOX Networks</h4>
         <p>Network TAPs, packet brokers and traffic aggregation &mdash; the visibility layer that every detection tool downstream depends on.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" style="max-height:46px;width:auto;margin-bottom:var(--space-3)" loading="lazy">
+        <img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" style="max-height:46px;width:auto;margin-bottom:var(--space-3)" width="190" height="96" loading="lazy">
         <h4>Stamus Networks</h4>
         <p>Network detection and response built on open standards, giving SOC teams high-fidelity declarations rather than alert noise.</p>
       </div>
@@ -99,7 +99,7 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="section section--dark on-dark section--tight">
+<section class="section section--dark on-dark section--tight has-bg" style="background-image:url('assets/placeholders/background/representation-partners.jpg')">
   <div class="wrap">
     <div class="split">
       <div class="reveal">

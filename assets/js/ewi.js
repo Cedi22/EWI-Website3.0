@@ -14,53 +14,60 @@
   var init = function () {
 
   /* ---- initial page loading ----------------------------------------- */
-  /* ---- image sliders ------------------------------------------------- */
-  Array.prototype.forEach.call(d.querySelectorAll('[data-slider]'), function (slider) {
-    var slides = slider.querySelectorAll('.hero-slide, .lab-slide');
-    var dots = slider.querySelector('.slider-dots');
-    var timerBar = slider.querySelector('.slider-timer span');
-    if (slides.length < 2 || !dots) return;
-    var index = 0;
-    var timer;
-    Array.prototype.forEach.call(slides, function (slide, i) {
+  /* ---- image slider ---------------------------------------------------
+     Plain fade slider: .hero-slide/.lab-slide stack via CSS opacity,
+     .is-active toggles which one shows. Auto-advances on a single
+     setInterval, pauses on hover/focus. The fade transition itself is
+     disabled under prefers-reduced-motion via CSS (near-zero transition
+     duration), so slides still rotate but swap instantly instead of
+     fading — auto-advance keeps running either way. */
+
+  var initFadeSlider = function (slider) {
+    if (slider.dataset.sliderInited) return;
+    slider.dataset.sliderInited = '1';
+
+    var slides = Array.prototype.slice.call(slider.querySelectorAll('.hero-slide, .lab-slide'));
+    if (slides.length < 2) return;
+    var dotsWrap = slider.querySelector('.slider-dots');
+    var interval = Number(slider.dataset.interval) || 6000;
+    var index = Math.max(0, slides.findIndex(function (s) { return s.classList.contains('is-active'); }));
+    var timer = null;
+    var dots = [];
+
+    if (dotsWrap) slides.forEach(function (_, i) {
       var dot = d.createElement('button');
       dot.type = 'button';
       dot.setAttribute('aria-label', 'Show slide ' + (i + 1));
       dot.addEventListener('click', function () { show(i); restart(); });
-      dots.appendChild(dot);
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
     });
+
     var show = function (next) {
       index = (next + slides.length) % slides.length;
-      Array.prototype.forEach.call(slides, function (slide, i) { slide.classList.toggle('is-active', i === index); });
-      Array.prototype.forEach.call(dots.children, function (dot, i) { dot.classList.toggle('is-active', i === index); });
+      slides.forEach(function (slide, i) {
+        var active = i === index;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+      dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === index); });
     };
+    var stop = function () { if (timer) { window.clearInterval(timer); timer = null; } };
     var restart = function () {
-      window.clearTimeout(timer);
-      if (timerBar) {
-        timerBar.style.transition = 'none';
-        timerBar.style.width = '0%';
-        void timerBar.offsetWidth;
-      }
-      if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        var interval = Number(slider.dataset.interval) || 6000;
-        if (timerBar) {
-          window.requestAnimationFrame(function () {
-            timerBar.style.transition = 'width ' + interval + 'ms linear';
-            timerBar.style.width = '100%';
-          });
-        }
-        timer = window.setTimeout(function () { show(index + 1); restart(); }, interval);
-      } else if (timerBar) {
-        timerBar.style.width = '100%';
-      }
+      stop();
+      timer = window.setInterval(function () { show(index + 1); }, interval);
     };
-    var previous = slider.querySelector('.slider-prev');
-    var next = slider.querySelector('.slider-next');
-    if (previous) previous.addEventListener('click', function () { show(index - 1); restart(); });
-    if (next) next.addEventListener('click', function () { show(index + 1); restart(); });
-    show(0);
+
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', restart);
+    slider.addEventListener('focusin', stop);
+    slider.addEventListener('focusout', restart);
+
+    show(index);
     restart();
-  });
+  };
+
+  Array.prototype.forEach.call(d.querySelectorAll('[data-slider]'), initFadeSlider);
 
   /* ---- mobile nav ---------------------------------------------------- */
   var toggle = d.querySelector('.nav-toggle');
@@ -155,7 +162,7 @@
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reducedMotion) {
     Array.prototype.forEach.call(d.querySelectorAll('.marquee-track'), function (track) {
-      if (track.dataset.cloned || track.closest('.marquee--clients')) return;
+      if (track.dataset.cloned) return;
       track.dataset.cloned = '1';
       track.innerHTML += track.innerHTML;
     });

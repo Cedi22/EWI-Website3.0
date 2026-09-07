@@ -6,7 +6,7 @@ $canonical = 'https://www.eastwestint.qa/about.php';
 include __DIR__ . '/partials/header.php';
 ?>
 
-<section class="page-hero on-dark">
+<section class="page-hero on-dark has-bg" style="background-image:url('assets/placeholders/background/technical-scopes-about.jpg')">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.php">Home</a><span>/</span>About
@@ -71,19 +71,19 @@ include __DIR__ . '/partials/header.php';
     <div class="grid grid-3">
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="badge-check"></i>
+        <i class="card-icon icon-authorize"></i>
         <h4>Represent, don&rsquo;t just resell</h4>
         <p>We take authorised representation seriously: factory training, genuine product, valid warranty, and a principal we can escalate to when a project needs it.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="users"></i>
+        <i class="card-icon icon-persons"></i>
         <h4>Keep engineers on staff</h4>
         <p>Specification review, submittals, installation, commissioning and after-sales all sit with our own sales and technical engineers &mdash; not a subcontractor you never meet.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="truck"></i>
+        <i class="card-icon icon-moving-truck"></i>
         <h4>Hold stock in Doha</h4>
         <p>Material on the doorstep for projects, construction and maintenance works, so a shortage on site does not become a six-week import.</p>
       </div>
@@ -91,7 +91,7 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="section section--dark on-dark">
+<section class="section section--dark on-dark has-bg" style="background-image:url('assets/placeholders/background/supply.jpg')">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="kicker">Sectors we serve</p>
@@ -100,37 +100,37 @@ include __DIR__ . '/partials/header.php';
     <div class="grid grid-3">
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="landmark"></i>
+        <i class="card-icon icon-government"></i>
         <h4>Government &amp; semi-government</h4>
         <p>Ministries, authorities and state-owned bodies, with the registrations and approvals that public tendering requires.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="fuel"></i>
+        <i class="card-icon icon-gas"></i>
         <h4>Oil, gas &amp; petrochemical</h4>
         <p>Onshore and offshore operators and their laboratories, plants and maintenance departments.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="graduation-cap"></i>
+        <i class="card-icon icon-mortarboard"></i>
         <h4>Universities &amp; research</h4>
         <p>Teaching and research laboratories, from single instruments to complete new-build facilities.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="heart-pulse"></i>
+        <i class="card-icon icon-health"></i>
         <h4>Hospitals &amp; healthcare</h4>
         <p>Clinical and diagnostic laboratory equipment, consumables and service cover.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="hard-hat"></i>
+        <i class="card-icon icon-helmet"></i>
         <h4>MEP &amp; construction contractors</h4>
         <p>Site electrical materials, identification and tooling supplied against programme, not against a catalogue.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <i class="card-icon" data-lucide="users"></i>
+        <i class="card-icon icon-persons"></i>
         <h4>Resellers &amp; integrators</h4>
         <p>Channel partners who need a local distributor with stock, technical presales and deployment support behind them.</p>
       </div>
@@ -138,7 +138,7 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="cta on-dark">
+<section class="cta on-dark has-bg" style="background-image:url('assets/placeholders/background/business-plan.jpg')">
   <div class="wrap">
     <div class="reveal">
       <p class="kicker">Work with us</p>

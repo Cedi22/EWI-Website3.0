@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/css/ewi.css?v=20260907">
+<link rel="stylesheet" href="assets/css/ewi.css?v=20260907.3">
 <script>document.documentElement.className += ' js';</script>
 <script type="application/ld+json">
 {
@@ -53,7 +53,10 @@
 }
 </script>
 </head>
-<body data-page="divisions">
+<body class="is-loading" data-page="divisions">
+<div class="page-loader" role="status" aria-label="Loading page">
+  <span class="page-loader-mark" aria-hidden="true"></span>
+</div>
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="utility">
@@ -68,40 +71,40 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="East West Trading International — home">
+    <a class="brand" href="index.php" aria-label="East West Trading International — home">
       <img src="assets/logo.png" alt="East West Trading International" width="740" height="90">
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
-      <span></span><span></span><span></span>
+      <span></span><span></span><span></span><i data-lucide="x" aria-hidden="true"></i>
     </button>
 
     <nav class="nav" id="primary-nav" aria-label="Primary">
       <ul class="nav-list">
-        <li class="nav-home"><a href="index.html">Home</a></li>
-        <li class="nav-about"><a href="about.html">About</a></li>
+        <li class="nav-home"><a href="index.php">Home</a></li>
+        <li class="nav-about"><a href="about.php">About</a></li>
         <li class="nav-divisions">
           <button class="sub-toggle" type="button" aria-expanded="false">Divisions <i data-lucide="chevron-down"></i></button>
           <div class="subnav">
             <div>
-              <a href="divisions.html#lab">
+              <a href="divisions.php#lab">
                 <strong>Lab Systems</strong>
                 <small>Turnkey laboratories, scientific instrumentation, furniture and automation.</small>
               </a>
-              <a href="divisions.html#electrical">
+              <a href="divisions.php#electrical">
                 <strong>Electrical Division</strong>
                 <small>Cable management, enclosures, tools and site materials for major projects.</small>
               </a>
-              <a href="divisions.html#cyber">
+              <a href="divisions.php#cyber">
                 <strong>Cyber Security</strong>
                 <small>Network visibility and threat detection with NEOX and Stamus Networks.</small>
               </a>
             </div>
           </div>
         </li>
-        <li class="nav-services"><a href="services.html">Services</a></li>
-        <li class="nav-partners"><a href="partners.html">Partners</a></li>
-        <li class="nav-clients"><a href="clients.html">Clients</a></li>
+        <li class="nav-services"><a href="services.php">Services</a></li>
+        <li class="nav-partners"><a href="partners.php">Partners</a></li>
+        <li class="nav-clients"><a href="clients.php">Clients</a></li>
       </ul>
       <div class="nav-cta">
         <a class="btn btn-primary btn-block" href="mailto:eastwest@qatar.net.qa?subject=Enquiry%20from%20eastwestint.qa">Request a quote</a>
@@ -117,18 +120,17 @@
 
 <main id="main">
 
-
 <section class="page-hero on-dark">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a><span>/</span>Divisions
+      <a href="index.php">Home</a><span>/</span>Divisions
     </nav>
     <h1>Three divisions, one accountable supplier</h1>
     <p>Each division has its own principals, its own engineers and its own stock &mdash; but one contract, one point of contact and one company standing behind the delivery.</p>
     <div class="anchors">
-      <a href="#lab"><i data-lucide="flask-conical"></i>Lab Systems</a>
-      <a href="#electrical"><i data-lucide="zap"></i>Electrical Division</a>
-      <a href="#cyber"><i data-lucide="shield-check"></i>Cyber Security</a>
+      <a href="#lab"><i class="icon-lab"></i>Lab Systems</a>
+      <a href="#electrical"><i class="icon-electrical"></i>Electrical Division</a>
+      <a href="#cyber"><i class="icon-cybersecurity"></i>Cyber Security</a>
     </div>
   </div>
 </section>
@@ -158,7 +160,7 @@
       </div>
       <figure class="figure figure--wide lab-slider blueprint reveal" data-slider data-interval="5200" aria-label="Laboratory systems projects">
         <div class="lab-slides">
-          <img class="lab-slide is-active" src="assets/lab-placeholder.jpg" alt="Laboratory systems placeholder">
+          <img class="lab-slide is-active" src="assets/placeholders/process-services.jpg" alt="Laboratory systems project delivery">
         </div>
         <div class="slider-dots" aria-label="Laboratory project slides"></div>
       </figure>
@@ -166,16 +168,16 @@
 
     <h3 style="margin-top:var(--space-16)">Principals we represent</h3>
     <div class="logo-grid reveal">
-      <span class="logo-cell"><img src="assets/logos/partners/lab/thermo-fisher.png" alt="Thermo Fisher Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/fisher-scientific.png" alt="Fisher Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/duran.png" alt="DURAN Group" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/kewaunee.png" alt="Kewaunee Scientific" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/netzsch.jpg" alt="NETZSCH" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/oxford-instruments.png" alt="Oxford Instruments" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/mts-systems.png" alt="MTS Systems" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/mbraun.jpg" alt="MBRAUN" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/innovatest.png" alt="INNOVATEST" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/lab/mirotrac.jpg" alt="Mirotrac MRB" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/thermo-fisher.png" alt="Thermo Fisher Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/fisher-scientific.png" alt="Fisher Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/duran.png" alt="DURAN Group" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/kewaunee.png" alt="Kewaunee Scientific" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/netzsch.jpg" alt="NETZSCH" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/oxford-instruments.png" alt="Oxford Instruments" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/mts-systems.png" alt="MTS Systems" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/mbraun.jpg" alt="MBRAUN" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/innovatest.png" alt="INNOVATEST" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/lab/mirotrac.jpg" alt="Mirotrac MRB" width="190" height="96" loading="lazy"></span>
     </div>
   </section>
 
@@ -203,23 +205,23 @@
       </div>
       <figure class="figure blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <img src="assets/electrical-placeholder.png" alt="Electrical materials and site installation placeholder" loading="lazy">
+        <img src="assets/placeholders/scope-to-price-services.jpg" alt="Electrical materials and site installation" width="1200" height="900" loading="lazy">
       </figure>
     </div>
 
     <h3 style="margin-top:var(--space-16)">Principals we represent</h3>
     <div class="logo-grid reveal">
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="Weidmüller" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/ideal.png" alt="IDEAL Industries" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/high-voltage.png" alt="High Voltage Inc." loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/coilhose.png" alt="Coilhose Pneumatics" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/kingsmill.png" alt="Kingsmill Industries" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/metal-hose.jpg" alt="International Metal Hose" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/creative-composites.svg" alt="Creative Composites Group" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="WeidmÃ¼ller" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/ideal.png" alt="IDEAL Industries" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/high-voltage.png" alt="High Voltage Inc." width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/coilhose.png" alt="Coilhose Pneumatics" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/kingsmill.png" alt="Kingsmill Industries" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/metal-hose.jpg" alt="International Metal Hose" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/creative-composites.svg" alt="Creative Composites Group" width="190" height="96" loading="lazy"></span>
     </div>
   </section>
 
@@ -245,14 +247,14 @@
       </div>
       <figure class="figure blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <img src="assets/cybersecurity-placeholder.jpg" alt="Cyber security network infrastructure placeholder" loading="lazy">
+        <img src="assets/placeholders/solutions-services.jpg" alt="Cyber security network infrastructure solutions" width="1200" height="900" loading="lazy">
       </figure>
     </div>
 
     <h3 style="margin-top:var(--space-16)">Principals we represent</h3>
     <div class="logo-grid reveal">
-      <span class="logo-cell"><img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" width="190" height="96" loading="lazy"></span>
     </div>
   </section>
 </div>
@@ -284,19 +286,19 @@
       <div>
         <h5>Divisions</h5>
         <ul class="footer-links">
-          <li><a href="divisions.html#lab"><i data-lucide="chevron-right"></i>Lab Systems</a></li>
-          <li><a href="divisions.html#electrical"><i data-lucide="chevron-right"></i>Electrical Division</a></li>
-          <li><a href="divisions.html#cyber"><i data-lucide="chevron-right"></i>Cyber Security</a></li>
+          <li><a href="divisions.php#lab"><i data-lucide="chevron-right"></i>Lab Systems</a></li>
+          <li><a href="divisions.php#electrical"><i data-lucide="chevron-right"></i>Electrical Division</a></li>
+          <li><a href="divisions.php#cyber"><i data-lucide="chevron-right"></i>Cyber Security</a></li>
         </ul>
       </div>
 
       <div>
         <h5>Company</h5>
         <ul class="footer-links">
-          <li><a href="about.html"><i data-lucide="chevron-right"></i>About EWI</a></li>
-          <li><a href="services.html"><i data-lucide="chevron-right"></i>Services</a></li>
-          <li><a href="partners.html"><i data-lucide="chevron-right"></i>Partners</a></li>
-          <li><a href="clients.html"><i data-lucide="chevron-right"></i>Clients</a></li>
+          <li><a href="about.php"><i data-lucide="chevron-right"></i>About EWI</a></li>
+          <li><a href="services.php"><i data-lucide="chevron-right"></i>Services</a></li>
+          <li><a href="partners.php"><i data-lucide="chevron-right"></i>Partners</a></li>
+          <li><a href="clients.php"><i data-lucide="chevron-right"></i>Clients</a></li>
         </ul>
       </div>
 
@@ -327,7 +329,6 @@
 </a>
 
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
-<script src="assets/js/ewi.js?v=20260907"></script>
+<script src="assets/js/ewi.js?v=20260907.3"></script>
 </body>
 </html>
-

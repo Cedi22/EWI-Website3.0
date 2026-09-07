@@ -11,7 +11,7 @@ if (!isset($title))     { $title = 'East West Trading International'; }
 if (!isset($desc))      { $desc = 'Technology, laboratory and electrical distribution in Qatar since 2002.'; }
 if (!isset($page))      { $page = ''; }
 if (!isset($canonical)) { $canonical = 'https://www.eastwestint.qa/'; }
-$asset_version = '20260907.1';
+$asset_version = '20260907.6';
 ?>
 <!DOCTYPE html>
 <html lang="en">
