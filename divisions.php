@@ -1,6 +1,6 @@
 <?php
-$title = 'Divisions &mdash; Lab Systems, Electrical &amp; Cyber Security | EWI Qatar';
-$desc = 'EWI operates three divisions in Qatar: Lab Systems (turnkey laboratories and instrumentation), the Electrical Division (cable management, enclosures, tooling) and Cyber Security (NEOX and Stamus Networks).';
+$title = 'Divisions &mdash; Lab Systems, Electrical, Network &amp; Data Centre and Cyber Security | EWI Qatar';
+$desc = 'EWI operates four divisions in Qatar: Lab Systems (turnkey laboratories and instrumentation), the Electrical Division (cable management, enclosures, tooling), Network &amp; Data Centre (structured cabling, fibre, switching and modular data centre infrastructure with BDCOM and FABNET) and Cyber Security (NEOX and Stamus Networks).';
 $page = 'divisions';
 $canonical = 'https://www.eastwestint.qa/divisions.php';
 include __DIR__ . '/partials/header.php';
@@ -11,11 +11,12 @@ include __DIR__ . '/partials/header.php';
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.php">Home</a><span>/</span>Divisions
     </nav>
-    <h1>Three divisions, one accountable supplier</h1>
+    <h1>Four divisions, one accountable supplier</h1>
     <p>Each division has its own principals, its own engineers and its own stock &mdash; but one contract, one point of contact and one company standing behind the delivery.</p>
     <div class="anchors">
       <a href="#lab"><i class="icon-lab"></i>Lab Systems</a>
       <a href="#electrical"><i class="icon-electrical"></i>Electrical Division</a>
+      <a href="#network"><i class="icon-network"></i>Network &amp; Data Centre</a>
       <a href="#cyber"><i class="icon-cybersecurity"></i>Cyber Security</a>
     </div>
   </div>
@@ -23,7 +24,7 @@ include __DIR__ . '/partials/header.php';
 
 <section class="section section--tight">
   <div class="wrap">
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <i class="card-icon icon-lab"></i>
@@ -35,6 +36,12 @@ include __DIR__ . '/partials/header.php';
         <i class="card-icon icon-electrical"></i>
         <h4>Electrical Division</h4>
         <p>Cable management, enclosures, identification and site tooling held in stock in Doha for construction and maintenance.</p>
+      </div>
+      <div class="card blueprint reveal">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <i class="card-icon icon-network"></i>
+        <h4>Network &amp; Data Centre</h4>
+        <p>Structured cabling, fibre, switching, access and modular data centre infrastructure for enterprise and carrier environments.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -58,7 +65,7 @@ include __DIR__ . '/partials/header.php';
           <span class="tag">Furniture &amp; fume hoods</span>
           <span class="tag">Automation</span>
         </div>
-        <p>Our founding division. EWI came to the Qatari market with experience in turnkey laboratory solutions and took the lead on long-term laboratory projects &mdash; delivering a vast installed base of advanced scientific instrumentation from world-renowned manufacturers.</p>
+        <p>Our founding division. We came to the Qatari market with experience in turnkey laboratory solutions and took the lead on long-term laboratory projects &mdash; delivering a vast installed base of advanced scientific instrumentation from world-renowned manufacturers.</p>
         <p>We work from the layout drawing forward: casework and fume extraction, services coordination, instrument selection, installation, qualification and the maintenance contract that keeps it all calibrated.</p>
         <ul class="checks">
           <li><i data-lucide="check"></i><span>Turnkey laboratory design, supply and fit-out</span></li>
@@ -69,7 +76,7 @@ include __DIR__ . '/partials/header.php';
           <li><i data-lucide="check"></i><span>Glassware, consumables and spare parts from stock</span></li>
         </ul>
       </div>
-      <figure class="figure figure--wide lab-slider blueprint reveal" data-slider data-interval="5200" aria-label="Laboratory systems projects">
+      <figure class="figure figure--wide lab-slider blueprint reveal" data-slider data-interval="2600" aria-label="Laboratory systems projects">
         <div class="lab-slides">
           <img class="lab-slide is-active" src="assets/lab-placeholder.jpg" alt="Laboratory systems placeholder">
         </div>
@@ -136,10 +143,45 @@ include __DIR__ . '/partials/header.php';
     </div>
   </section>
 
-  <section class="division" id="cyber">
+  <section class="division" id="network">
     <div class="split">
       <div class="reveal">
         <p class="kicker">Division 03</p>
+        <h2>Network &amp; Data Centre</h2>
+        <div class="division-meta">
+          <span class="tag">Structured cabling</span>
+          <span class="tag">Fibre optic</span>
+          <span class="tag">Switching</span>
+          <span class="tag">DCIM &amp; AIM</span>
+        </div>
+        <p>Our infrastructure layer. The Network &amp; Data Centre Division supplies and installs the structured cabling, fibre optic backbone, switching and access systems that everything else on a project runs over &mdash; plus the modular data centre infrastructure that houses it.</p>
+        <p>We work from the network design forward: pathway and containment, copper and fibre cabling, active switching and access control, then rack, containment and DCIM/AIM systems for the data centre itself, commissioned and documented for handover.</p>
+        <ul class="checks">
+          <li><i data-lucide="check"></i><span>Structured cabling: copper, fibre optic and containment systems</span></li>
+          <li><i data-lucide="check"></i><span>Network switching, access points and active infrastructure</span></li>
+          <li><i data-lucide="check"></i><span>Modular and containerised data centre infrastructure</span></li>
+          <li><i data-lucide="check"></i><span>Data centre racks, containment and cable management</span></li>
+          <li><i data-lucide="check"></i><span>DCIM and AIM (asset and infrastructure management) systems</span></li>
+          <li><i data-lucide="check"></i><span>Access control and physical security for network and server rooms</span></li>
+        </ul>
+      </div>
+      <figure class="figure blueprint reveal">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <img src="assets/placeholders/data-centre.jpg" alt="Network and data centre infrastructure placeholder" width="550" height="360" loading="lazy">
+      </figure>
+    </div>
+
+    <h3 style="margin-top:var(--space-16)">Principals we represent</h3>
+    <div class="logo-grid reveal">
+      <span class="logo-cell"><img src="assets/logos/partners/network/bdcom.png" alt="BDCOM" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/network/fabnet.png" alt="FABNET" width="190" height="96" loading="lazy"></span>
+    </div>
+  </section>
+
+  <section class="division" id="cyber">
+    <div class="split">
+      <div class="reveal">
+        <p class="kicker">Division 04</p>
         <h2>Cyber Security</h2>
         <div class="division-meta">
           <span class="tag">Network visibility</span>

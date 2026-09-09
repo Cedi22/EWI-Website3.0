@@ -13,6 +13,7 @@
         <ul class="footer-links">
           <li><a href="divisions.php#lab"><i data-lucide="chevron-right"></i>Lab Systems</a></li>
           <li><a href="divisions.php#electrical"><i data-lucide="chevron-right"></i>Electrical Division</a></li>
+          <li><a href="divisions.php#network"><i data-lucide="chevron-right"></i>Network &amp; Data Centre</a></li>
           <li><a href="divisions.php#cyber"><i data-lucide="chevron-right"></i>Cyber Security</a></li>
         </ul>
       </div>
@@ -20,7 +21,7 @@
       <div>
         <h5>Company</h5>
         <ul class="footer-links">
-          <li><a href="about.php"><i data-lucide="chevron-right"></i>About EWI</a></li>
+          <li><a href="about.php"><i data-lucide="chevron-right"></i>About us</a></li>
           <li><a href="services.php"><i data-lucide="chevron-right"></i>Services</a></li>
           <li><a href="partners.php"><i data-lucide="chevron-right"></i>Partners</a></li>
           <li><a href="clients.php"><i data-lucide="chevron-right"></i>Clients</a></li>

@@ -1,6 +1,6 @@
 <?php
 $title = 'Services &mdash; Supply, Fit-Out, Commissioning &amp; Maintenance | EWI Qatar';
-$desc = 'EWI services in Qatar: project sales and supply, turnkey lab fit-out, lab furniture and fume hoods, automation, instrumentation, electrical materials, installation, commissioning, calibration and cyber professional services.';
+$desc = 'EWI services in Qatar: project sales and supply, turnkey lab fit-out, lab furniture and fume hoods, automation, instrumentation, electrical materials, structured cabling and data centre infrastructure, installation, commissioning, calibration and cyber professional services.';
 $page = 'services';
 $canonical = 'https://www.eastwestint.qa/services.php';
 include __DIR__ . '/partials/header.php';
@@ -21,7 +21,7 @@ include __DIR__ . '/partials/header.php';
     <div class="section-head reveal">
       <p class="kicker">Capabilities</p>
       <h2>What we deliver</h2>
-      <p>Every line below is delivered by EWI staff or by a principal we directly represent. Nothing here is brokered.</p>
+      <p>Every line below is delivered by our staff or by a principal we directly represent. Nothing here is brokered.</p>
     </div>
 
     <div class="grid grid-3">
@@ -75,6 +75,12 @@ include __DIR__ . '/partials/header.php';
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <i class="card-icon icon-network"></i>
+        <h4>Structured cabling &amp; data centre</h4>
+        <p>Copper and fibre structured cabling, switching, access and modular data centre infrastructure with BDCOM and FABNET.</p>
+      </div>
+      <div class="card blueprint reveal">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <i class="card-icon icon-installation"></i>
         <h4>Installation &amp; commissioning</h4>
         <p>Site works, installation qualification, validation and handover documentation carried out by our own technical engineers.</p>
@@ -105,7 +111,7 @@ include __DIR__ . '/partials/header.php';
   <div class="wrap">
     <div class="section-head reveal">
       <p class="kicker">Process</p>
-      <h2>How an EWI job runs</h2>
+      <h2>How our job runs</h2>
     </div>
     <div class="grid grid-4">
       <div class="card blueprint reveal">

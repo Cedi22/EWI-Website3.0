@@ -8,10 +8,10 @@
  *   $canonical — absolute URL of this page
  */
 if (!isset($title))     { $title = 'East West Trading International'; }
-if (!isset($desc))      { $desc = 'Technology, laboratory and electrical distribution in Qatar since 2002.'; }
+if (!isset($desc))      { $desc = 'Technology, laboratory, electrical, network &amp; data centre distribution in Qatar since 2002.'; }
 if (!isset($page))      { $page = ''; }
 if (!isset($canonical)) { $canonical = 'https://www.eastwestint.qa/'; }
-$asset_version = '20260907.6';
+$asset_version = '20260907.7';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,7 @@ $asset_version = '20260907.6';
   "url": "https://www.eastwestint.qa/",
   "logo": "https://www.eastwestint.qa/assets/ewi-logo.png",
   "image": "https://www.eastwestint.qa/assets/ewi-logo.png",
-  "description": "Qatari distributor of laboratory systems, electrical materials and cyber security solutions. Established 2002.",
+  "description": "Qatari distributor of laboratory systems, electrical materials, network & data centre infrastructure and cyber security solutions. Established 2002.",
   "foundingDate": "2002",
   "telephone": "+974-4465-4878",
   "email": "eastwest@qatar.net.qa",
@@ -109,6 +109,10 @@ $asset_version = '20260907.6';
               <a href="divisions.php#electrical">
                 <strong>Electrical Division</strong>
                 <small>Cable management, enclosures, tools and site materials for major projects.</small>
+              </a>
+              <a href="divisions.php#network">
+                <strong>Network &amp; Data Centre</strong>
+                <small>Structured cabling, fibre, switching and modular data centre infrastructure.</small>
               </a>
               <a href="divisions.php#cyber">
                 <strong>Cyber Security</strong>

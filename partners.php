@@ -1,6 +1,6 @@
 <?php
 $title = 'Partners &mdash; Brands EWI Represents in Qatar';
-$desc = 'The principals EWI represents in Qatar across Lab Systems, the Electrical Division and Cyber Security â€” including Thermo Fisher, DURAN, Kewaunee, NETZSCH, Oxford Instruments, MTS, Atkore, Weidm&uuml;ller, Hensel, Brady, NEOX Networks and Stamus Networks.';
+$desc = 'The principals EWI represents in Qatar across Lab Systems, the Electrical Division, Network &amp; Data Centre and Cyber Security â€” including Thermo Fisher, DURAN, Kewaunee, NETZSCH, Oxford Instruments, MTS, Atkore, Weidm&uuml;ller, Hensel, Brady, BDCOM, FABNET, NEOX Networks and Stamus Networks.';
 $page = 'partners';
 $canonical = 'https://www.eastwestint.qa/partners.php';
 include __DIR__ . '/partials/header.php';
@@ -16,6 +16,7 @@ include __DIR__ . '/partials/header.php';
     <div class="anchors">
       <a href="#lab"><i class="icon-lab"></i>Lab Systems</a>
       <a href="#electrical"><i class="icon-electrical"></i>Electrical</a>
+      <a href="#network"><i class="icon-network"></i>Network &amp; Data Centre</a>
       <a href="#cyber"><i class="icon-cybersecurity"></i>Cyber Security</a>
     </div>
   </div>
@@ -72,11 +73,28 @@ include __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="section" id="cyber">
+<section class="section" id="network">
   <div class="wrap">
     <div class="section-head section-head--split reveal">
       <div>
         <p class="kicker">Division 03</p>
+        <h2>Network &amp; Data Centre principals</h2>
+      </div>
+      <p>Structured cabling, fibre optic backbone, switching and modular data centre infrastructure.</p>
+    </div>
+    <div class="logo-grid reveal">
+      <span class="logo-cell"><img src="assets/logos/partners/network/bdcom.png" alt="BDCOM" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/network/fabnet.png" alt="FABNET" width="190" height="96" loading="lazy"></span>
+    </div>
+    <p style="margin-top:var(--space-8)"><a class="arrow-link" href="divisions.php#network">About the Network &amp; Data Centre division <i data-lucide="arrow-right"></i></a></p>
+  </div>
+</section>
+
+<section class="section section--surface" id="cyber">
+  <div class="wrap">
+    <div class="section-head section-head--split reveal">
+      <div>
+        <p class="kicker">Division 04</p>
         <h2>Cyber Security principals</h2>
       </div>
       <p>Two specialists, deliberately: network visibility infrastructure and network-based threat detection and response.</p>
@@ -86,13 +104,11 @@ include __DIR__ . '/partials/header.php';
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" style="max-height:46px;width:auto;margin-bottom:var(--space-3)" width="190" height="96" loading="lazy">
         <h4>NEOX Networks</h4>
-        <p>Network TAPs, packet brokers and traffic aggregation &mdash; the visibility layer that every detection tool downstream depends on.</p>
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" style="max-height:46px;width:auto;margin-bottom:var(--space-3)" width="190" height="96" loading="lazy">
         <h4>Stamus Networks</h4>
-        <p>Network detection and response built on open standards, giving SOC teams high-fidelity declarations rather than alert noise.</p>
       </div>
     </div>
     <p style="margin-top:var(--space-8)"><a class="arrow-link" href="divisions.php#cyber">About the Cyber Security division <i data-lucide="arrow-right"></i></a></p>

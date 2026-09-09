@@ -16,11 +16,13 @@
   /* ---- initial page loading ----------------------------------------- */
   /* ---- image slider ---------------------------------------------------
      Plain fade slider: .hero-slide/.lab-slide stack via CSS opacity,
-     .is-active toggles which one shows. Auto-advances on a single
-     setInterval, pauses on hover/focus. The fade transition itself is
-     disabled under prefers-reduced-motion via CSS (near-zero transition
-     duration), so slides still rotate but swap instantly instead of
-     fading — auto-advance keeps running either way. */
+     .is-active toggles which one shows. Single setInterval auto-advances,
+     runs continuously — not paused by hover/focus/dot clicks. The fade
+     transition itself is disabled under prefers-reduced-motion via CSS
+     (near-zero transition duration), so slides still rotate but swap
+     instantly instead of fading — auto-advance keeps running either way.
+     No arrows, no links — each dot doubles as a countdown bar that fills
+     over the interval so the time to the next slide is visible. */
 
   var initFadeSlider = function (slider) {
     if (slider.dataset.sliderInited) return;
@@ -29,45 +31,83 @@
     var slides = Array.prototype.slice.call(slider.querySelectorAll('.hero-slide, .lab-slide'));
     if (slides.length < 2) return;
     var dotsWrap = slider.querySelector('.slider-dots');
+    var prev = slider.querySelector('[data-slider-prev]');
+    var next = slider.querySelector('[data-slider-next]');
     var interval = Number(slider.dataset.interval) || 6000;
-    var index = Math.max(0, slides.findIndex(function (s) { return s.classList.contains('is-active'); }));
+    var current = Math.max(0, slides.findIndex(function (s) { return s.classList.contains('is-active'); }));
     var timer = null;
+    var paused = false;
     var dots = [];
 
     if (dotsWrap) slides.forEach(function (_, i) {
       var dot = d.createElement('button');
       dot.type = 'button';
+      dot.className = 'slider-dot';
       dot.setAttribute('aria-label', 'Show slide ' + (i + 1));
-      dot.addEventListener('click', function () { show(i); restart(); });
+      var fill = d.createElement('span');
+      fill.className = 'slider-dot-fill';
+      dot.appendChild(fill);
+      dot.addEventListener('click', function () { showSlide(i); startTimer(); });
       dotsWrap.appendChild(dot);
-      dots.push(dot);
+      dots.push({ el: dot, fill: fill });
     });
 
-    var show = function (next) {
-      index = (next + slides.length) % slides.length;
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
       slides.forEach(function (slide, i) {
-        var active = i === index;
+        var active = i === current;
         slide.classList.toggle('is-active', active);
         slide.setAttribute('aria-hidden', active ? 'false' : 'true');
       });
-      dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === index); });
-    };
-    var stop = function () { if (timer) { window.clearInterval(timer); timer = null; } };
-    var restart = function () {
-      stop();
-      timer = window.setInterval(function () { show(index + 1); }, interval);
-    };
+      dots.forEach(function (dot, i) {
+        dot.el.classList.toggle('is-active', i === current);
+        dot.fill.style.transition = 'none';
+        dot.fill.style.width = '0';
+      });
+      if (dots[current]) {
+        var activeFill = dots[current].fill;
+        activeFill.offsetWidth; /* reflow: force restart of the fill transition */
+        activeFill.style.transition = 'width ' + interval + 'ms linear';
+        activeFill.style.width = '100%';
+      }
+    }
 
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', restart);
-    slider.addEventListener('focusin', stop);
-    slider.addEventListener('focusout', restart);
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
 
-    show(index);
-    restart();
+    function startTimer() {
+      window.clearInterval(timer);
+      if (!paused) timer = window.setInterval(nextSlide, interval);
+    }
+
+    function pauseSlider() {
+      paused = true;
+      window.clearInterval(timer);
+    }
+
+    function resumeSlider() {
+      paused = false;
+      startTimer();
+    }
+
+    if (next) next.addEventListener('click', function () { nextSlide(); startTimer(); });
+    if (prev) prev.addEventListener('click', function () { prevSlide(); startTimer(); });
+
+    slider.addEventListener('mouseenter', pauseSlider);
+    slider.addEventListener('mouseleave', resumeSlider);
+
+    showSlide(current);
+    startTimer();
   };
 
   Array.prototype.forEach.call(d.querySelectorAll('[data-slider]'), initFadeSlider);
+
+  /* ---- hero video ------------------------------------------------------ */
+  var heroVideo = d.querySelector('.hero-video');
+  if (heroVideo && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.pause();
+  }
 
   /* ---- mobile nav ---------------------------------------------------- */
   var toggle = d.querySelector('.nav-toggle');

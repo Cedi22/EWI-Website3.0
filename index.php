@@ -1,21 +1,25 @@
 <?php
-$title = 'EWI &mdash; Laboratory, Electrical &amp; Cyber Security Distribution in Qatar';
-$desc = 'East West Trading International is a Qatari distributor of laboratory systems, electrical materials and cyber security solutions. Established 2002. Doha, Qatar.';
+$title = 'EWI &mdash; Laboratory, Electrical, Network &amp; Data Centre and Cyber Security Distribution in Qatar';
+$desc = 'East West Trading International is a Qatari distributor of laboratory systems, electrical materials, network &amp; data centre infrastructure and cyber security solutions. Established 2002. Doha, Qatar.';
 $page = 'home';
 $canonical = 'https://www.eastwestint.qa/';
 include __DIR__ . '/partials/header.php';
 ?>
 
-<section class="hero hero--slider" data-slider data-interval="3500" aria-label="East West Trading International projects">
-  <div class="hero-slides">
-    <figure class="hero-slide is-active"><img src="assets/slides/homepage/Doha-Metro-tunnel.jpeg" alt="Doha Metro tunnel infrastructure" fetchpriority="high"><figcaption><p class="hero-badge">Established in Doha, 2002</p><h1>East West Trading International <em>Excellence Through Innovation</em></h1><p class="hero-lede">Technology distribution for Qatar&rsquo;s critical projects.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/Al-Thumama-Stadium.jpeg" alt="Al Thumama Stadium in Doha" loading="lazy"><figcaption><p class="hero-badge">Built for Qatar&rsquo;s critical projects</p><h1>Solutions that perform <em>where it matters</em></h1><p class="hero-lede">Specialist supply and technical support for infrastructure, research and industry.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/EXQ-h4eWAAMdbXq.jpeg" alt="Qatar infrastructure project at dusk" loading="lazy"><figcaption><p class="hero-badge">One accountable supplier</p><h1>From specification <em>to handover</em></h1><p class="hero-lede">Three specialist divisions, one Qatari team standing behind the delivery.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/Hamad-International-Airport-Expansion-hero.jpg" alt="Hamad International Airport expansion" loading="lazy"><figcaption><p class="hero-badge">Project sales and technical service</p><h1>Supporting the systems <em>that move Qatar</em></h1><p class="hero-lede">We hold stock, quote fast and support the work beyond the order.</p></figcaption></figure>
-    <figure class="hero-slide"><img src="assets/slides/homepage/Stadium974.jpeg" alt="Stadium 974 in Doha" loading="lazy"><figcaption><p class="hero-badge">East West Trading International</p><h1>Engineering confidence <em>through every stage</em></h1><p class="hero-lede">Laboratory, electrical and cyber security solutions for demanding environments.</p></figcaption></figure>
+<section class="hero hero--video" aria-label="East West Trading International">
+  <div class="hero-video-wrap">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/slides/homepage/Doha-Metro-tunnel.jpeg">
+      <source src="assets/video/0909.mp4" type="video/mp4">
+    </video>
   </div>
-  <div class="hero-controls" aria-label="Project slides">
-    <div class="slider-dots"></div>
+  <div class="wrap">
+    <div class="hero-video-caption">
+      <h1><span class="word-gold">Excellence</span> <span class="word-white">through</span> <span class="word-accent">Innovation</span></h1>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="about.php">Learn more</a>
+        <a class="btn btn-secondary" href="#contact">Contact Us</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -39,10 +43,19 @@ include __DIR__ . '/partials/header.php';
       <span class="arrow-link">Electrical Division <i data-lucide="arrow-right"></i></span>
     </a>
 
+    <a class="div-card blueprint reveal" href="divisions.php#network">
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <img class="div-icon" src="assets/icons/cables.png" alt="Network &amp; Data Centre logo" loading="lazy" width="40" height="40">
+      <span class="num">03 / NETWORK &amp; DATA CENTRE</span>
+      <h3>Network &amp; Data Centre</h3>
+      <p>Structured cabling, fibre, switching, access and modular data centre infrastructure with BDCOM and FABNET.</p>
+      <span class="arrow-link">Network &amp; Data Centre <i data-lucide="arrow-right"></i></span>
+    </a>
+
     <a class="div-card blueprint reveal" href="divisions.php#cyber">
       <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
       <img class="div-icon" src="assets/icons/cybersecurity.png" alt="Cyber Security logo" loading="lazy" width="40" height="40">
-      <span class="num">03 / CYBER SECURITY</span>
+      <span class="num">04 / CYBER SECURITY</span>
       <h3>Cyber Security</h3>
       <p>Network visibility and threat detection with NEOX Networks and Stamus Networks, delivered with professional services.</p>
       <span class="arrow-link">Cyber Security <i data-lucide="arrow-right"></i></span>
@@ -64,7 +77,7 @@ include __DIR__ . '/partials/header.php';
       </div>
       <div class="stat">
         <span class="stat-num" data-count="30" data-suffix="+">30+</span>
-        <span class="stat-label">Principal brands represented across three divisions</span>
+        <span class="stat-label">Principal brands represented across four divisions</span>
       </div>
       <div class="stat">
         <span class="stat-num" data-count="60" data-suffix="+">60+</span>
@@ -84,7 +97,7 @@ include __DIR__ . '/partials/header.php';
       <div class="reveal">
         <p class="kicker">Who we are</p>
         <h2>A local supplier that behaves like a principal</h2>
-        <p>East West Trading International is a Qatari establishment serving the scientific, industrial and construction communities in the State of Qatar. We came to the market with turnkey laboratory expertise and grew into electrical materials distribution and, most recently, network security.</p>
+        <p>East West Trading International is a Qatari establishment serving the scientific, industrial and construction communities in the State of Qatar. We came to the market with turnkey laboratory expertise and grew into electrical materials distribution, network &amp; data centre infrastructure and, most recently, cyber security.</p>
         <p>We are deliberately staffed with high-calibre specialists rather than resellers-by-catalogue. Sales engineers scope the requirement, technical engineers commission it, and the same team answers the phone afterwards.</p>
         <ul class="checks">
           <li><i data-lucide="check"></i><span>Stock held in Doha for projects, construction and maintenance works</span></li>
@@ -92,7 +105,7 @@ include __DIR__ . '/partials/header.php';
           <li><i data-lucide="check"></i><span>Sole and authorised representation for world-renowned manufacturers</span></li>
           <li><i data-lucide="check"></i><span>Installation, commissioning, calibration and training under one contract</span></li>
         </ul>
-        <p><a class="arrow-link" href="about.php">More about EWI <i data-lucide="arrow-right"></i></a></p>
+        <p><a class="arrow-link" href="about.php">More about us <i data-lucide="arrow-right"></i></a></p>
       </div>
       <figure class="figure blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -145,6 +158,12 @@ include __DIR__ . '/partials/header.php';
       </div>
       <div class="card blueprint reveal">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <i class="card-icon icon-data-center"></i>
+        <h4>Structured cabling &amp; data centre</h4>
+        <p>Fibre, switching, access and modular data centre infrastructure with BDCOM and FABNET.</p>
+      </div>
+      <div class="card blueprint reveal">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <i class="card-icon icon-cybersecurity"></i>
         <h4>Cyber professional services</h4>
         <p>Deployment, tuning and knowledge transfer for network visibility and detection platforms.</p>
@@ -175,6 +194,8 @@ include __DIR__ . '/partials/header.php';
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/network/bdcom.png" alt="BDCOM" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/network/fabnet.png" alt="FABNET" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/cyber/stamus-networks.webp" alt="Stamus Networks" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/cyber/neox-networks.webp" alt="NEOX Networks" width="190" height="96" loading="lazy"></span>
     </div>
@@ -218,7 +239,7 @@ include __DIR__ . '/partials/header.php';
 <section class="section section--dark on-dark has-bg" style="background-image:url('assets/placeholders/background/principal-partner-home.jpg')">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Why EWI</p>
+      <p class="kicker">Why Us?</p>
       <h2>What a Doha-based principal partner gives you</h2>
     </div>
     <div class="grid grid-4">
