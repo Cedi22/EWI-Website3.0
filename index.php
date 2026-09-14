@@ -8,13 +8,11 @@ include __DIR__ . '/partials/header.php';
 
 <section class="hero hero--video" aria-label="East West Trading International">
   <div class="hero-video-wrap">
-    <video class="hero-video" autoplay muted loop playsinline poster="assets/slides/homepage/Doha-Metro-tunnel.jpeg">
-      <source src="assets/video/0909.mp4" type="video/mp4">
-    </video>
+    <video class="hero-video" muted loop playsinline poster="assets/slides/homepage/Doha-Metro-tunnel.jpeg" data-src="assets/video/0909_compress_optimized.mp4"></video>
   </div>
   <div class="wrap">
     <div class="hero-video-caption">
-      <h1><span class="word-gold">Excellence</span> <span class="word-white">through</span> <span class="word-accent">Innovation</span></h1>
+      <h1 class="slogan"><span class="word-gold slogan-word" data-slogan-word="excellence">Excellence</span> <span class="word-white slogan-word" data-slogan-word="through">through</span> <span class="word-accent slogan-word" data-slogan-word="innovation">Innovation</span></h1>
       <div class="hero-actions">
         <a class="btn btn-primary" href="about.php">Learn more</a>
         <a class="btn btn-secondary" href="#contact">Contact Us</a>
@@ -190,7 +188,7 @@ include __DIR__ . '/partials/header.php';
       <span class="logo-cell"><img src="assets/logos/partners/lab/oxford-instruments.png" alt="Oxford Instruments" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/lab/mts-systems.png" alt="MTS Systems" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" width="190" height="96" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="WeidmÃ¼ller" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="Weidm&uuml;ller" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" width="190" height="96" loading="lazy"></span>
@@ -219,7 +217,7 @@ include __DIR__ . '/partials/header.php';
       <div class="marquee-track">
       <span class="logo-cell"><img src="assets/logos/clients/qatarenergy.png" alt="QatarEnergy" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/kahramaa.png" alt="Kahramaa" width="190" height="96" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/ashghal.png" alt="Ashghal â€” Public Works Authority" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/ashghal.png" alt="Ashghal &mdash; Public Works Authority" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/hamad-medical.png" alt="Hamad Medical Corporation" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/qatar-university.png" alt="Qatar University" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/qatar-foundation.png" alt="Qatar Foundation" width="190" height="96" loading="lazy"></span>

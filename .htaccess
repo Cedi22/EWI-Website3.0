@@ -1,0 +1,27 @@
+DirectoryIndex index.php
+Options -Indexes
+
+# Serve 404.php for any missing file/directory. A relative RewriteRule target
+# resolves against this .htaccess's own directory, so this works unchanged
+# whether the site sits at the domain root (production) or a subfolder (local
+# XAMPP) — unlike ErrorDocument, whose path is always root-relative.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ 404.php [L]
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css   "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml
+</IfModule>

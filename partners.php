@@ -1,6 +1,6 @@
 <?php
 $title = 'Partners &mdash; Brands EWI Represents in Qatar';
-$desc = 'The principals EWI represents in Qatar across Lab Systems, the Electrical Division, Network &amp; Data Centre and Cyber Security â€” including Thermo Fisher, DURAN, Kewaunee, NETZSCH, Oxford Instruments, MTS, Atkore, Weidm&uuml;ller, Hensel, Brady, BDCOM, FABNET, NEOX Networks and Stamus Networks.';
+$desc = 'The principals EWI represents in Qatar across Lab Systems, the Electrical Division, Network &amp; Data Centre and Cyber Security &mdash; including Thermo Fisher, DURAN, Kewaunee, NETZSCH, Oxford Instruments, MTS, Atkore, Weidm&uuml;ller, Hensel, Brady, BDCOM, FABNET, NEOX Networks and Stamus Networks.';
 $page = 'partners';
 $canonical = 'https://www.eastwestint.qa/partners.php';
 include __DIR__ . '/partials/header.php';
@@ -58,7 +58,7 @@ include __DIR__ . '/partials/header.php';
     </div>
     <div class="logo-grid reveal">
       <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" width="190" height="96" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="WeidmÃ¼ller" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="Weidm&uuml;ller" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" width="190" height="96" loading="lazy"></span>

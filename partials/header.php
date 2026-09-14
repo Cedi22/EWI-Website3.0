@@ -99,7 +99,7 @@ $asset_version = '20260907.7';
         <li class="nav-home"><a href="index.php">Home</a></li>
         <li class="nav-about"><a href="about.php">About</a></li>
         <li class="nav-divisions">
-          <button class="sub-toggle" type="button" aria-expanded="false">Divisions <i data-lucide="chevron-down"></i></button>
+          <a class="sub-toggle" href="divisions.php" aria-expanded="false">Divisions <i data-lucide="chevron-down"></i></a>
           <div class="subnav">
             <div>
               <a href="divisions.php#lab">

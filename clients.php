@@ -29,8 +29,8 @@ include __DIR__ . '/partials/header.php';
       <h2>Government &amp; infrastructure</h2>
     </div>
     <div class="logo-grid reveal">
-      <span class="logo-cell"><img src="assets/logos/clients/ashghal.png" alt="Ashghal â€” Public Works Authority" width="190" height="96" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/kahramaa.png" alt="Kahramaa â€” Qatar General Electricity &amp; Water" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/ashghal.png" alt="Ashghal &mdash; Public Works Authority" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/kahramaa.png" alt="Kahramaa &mdash; Qatar General Electricity &amp; Water" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/moi-qatar.png" alt="Ministry of Interior, State of Qatar" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/qatar-rail.png" alt="Qatar Rail" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/hamad-airport.svg" alt="Hamad International Airport" width="190" height="96" loading="lazy"></span>
@@ -86,7 +86,7 @@ include __DIR__ . '/partials/header.php';
       <span class="logo-cell"><img src="assets/logos/clients/texas-am.png" alt="Texas A&amp;M University" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/carnegie-mellon.png" alt="Carnegie Mellon University" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/clients/ut-austin.png" alt="University of Texas at Austin" width="190" height="96" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/clients/cna-qatar.png" alt="College of the North Atlantic â€” Qatar" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/clients/cna-qatar.png" alt="College of the North Atlantic &mdash; Qatar" width="190" height="96" loading="lazy"></span>
     </div>
   </div>
 </section>

@@ -78,7 +78,11 @@ include __DIR__ . '/partials/header.php';
       </div>
       <figure class="figure figure--wide lab-slider blueprint reveal" data-slider data-interval="2600" aria-label="Laboratory systems projects">
         <div class="lab-slides">
-          <img class="lab-slide is-active" src="assets/lab-placeholder.jpg" alt="Laboratory systems placeholder">
+          <img class="lab-slide is-active" src="assets/slides/lab/Capture5.jpg" alt="Laboratory bench and fume hood installation">
+          <img class="lab-slide" src="assets/slides/lab/Capture6.jpg" alt="Laboratory casework with fume hood and worktops">
+          <img class="lab-slide" src="assets/slides/lab/Capture7.jpg" alt="Laboratory bench run with overhead shelving">
+          <img class="lab-slide" src="assets/slides/lab/Capture8.jpg" alt="Laboratory storage cabinetry and worktop">
+          <img class="lab-slide" src="assets/slides/lab/Capture9.jpg" alt="Laboratory bench and seating layout">
         </div>
         <div class="slider-dots" aria-label="Laboratory project slides"></div>
       </figure>
@@ -130,7 +134,7 @@ include __DIR__ . '/partials/header.php';
     <h3 style="margin-top:var(--space-16)">Principals we represent</h3>
     <div class="logo-grid reveal">
       <span class="logo-cell"><img src="assets/logos/partners/electrical/atkore.png" alt="Atkore" width="190" height="96" loading="lazy"></span>
-      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="WeidmÃ¼ller" width="190" height="96" loading="lazy"></span>
+      <span class="logo-cell"><img src="assets/logos/partners/electrical/weidmuller.svg" alt="Weidm&uuml;ller" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hensel.png" alt="Hensel" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/brady.png" alt="Brady" width="190" height="96" loading="lazy"></span>
       <span class="logo-cell"><img src="assets/logos/partners/electrical/hubbell-raco.svg" alt="Hubbell RACO" width="190" height="96" loading="lazy"></span>

@@ -106,9 +106,9 @@ body:not(.is-loading) .page-loader{opacity:0;visibility:hidden;pointer-events:no
 }
 .btn:hover{text-decoration:none;transform:translateY(-2px)}
 .btn svg{display:block;width:18px;height:18px;flex:none}
-.btn-primary{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
-.btn-primary:hover{background:var(--color-accent-700);border-color:var(--color-accent-700);color:#fff;box-shadow:var(--shadow-md)}
-.btn-primary:active{background:var(--color-accent-800);transform:translateY(0)}
+.btn-primary{background:var(--color-accent-700);border-color:var(--color-accent-700);color:#fff}
+.btn-primary:hover{background:var(--color-accent-800);border-color:var(--color-accent-800);color:#fff;box-shadow:var(--shadow-md)}
+.btn-primary:active{background:var(--color-accent-900);transform:translateY(0)}
 .btn-secondary:hover{background:color-mix(in srgb,var(--color-text) 7%,transparent);color:var(--color-text)}
 .hero .btn-secondary{color:#fff;border-color:color-mix(in srgb,#fff 40%,transparent)}
 .hero .btn-secondary:hover{background:color-mix(in srgb,#fff 12%,transparent);color:#fff;border-color:#fff}
@@ -171,11 +171,12 @@ body:not(.is-loading) .page-loader{opacity:0;visibility:hidden;pointer-events:no
 .nav-toggle[aria-expanded="true"] svg{display:block}
 
 .nav{position:absolute;top:100%;right:0;bottom:auto;left:0;height:calc(100vh - var(--header-h));background:var(--color-bg);
-  transform:translateX(100%);transition:transform .34s var(--ease);
+  transform:translateX(100%);transition:transform .34s var(--ease),visibility 0s linear .34s;will-change:transform;
   overflow-y:auto;padding:var(--space-6) 0 var(--space-16);visibility:hidden}
-.nav.is-open{transform:translateX(0);visibility:visible}
+.nav.is-open{transform:translateX(0);visibility:visible;transition:transform .34s var(--ease),visibility 0s linear}
 .nav-list{display:flex;flex-direction:column}
-.nav-list>li{border-bottom:1px solid var(--color-divider)}
+.nav-list>li{border-bottom:1px solid var(--color-divider);opacity:0;transform:translateY(-6px);transition:opacity .28s var(--ease),transform .28s var(--ease)}
+.nav.is-open .nav-list>li{opacity:1;transform:none;transition-delay:.08s}
 .nav-list>li>a,.sub-toggle{
   display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
   min-height:56px;padding:0 20px;background:transparent;border:0;cursor:pointer;
@@ -213,7 +214,7 @@ body[data-page="divisions"] .nav-divisions>.sub-toggle{color:var(--color-accent)
   .nav{position:static;inset:auto;transform:none;visibility:visible;background:transparent;
     height:auto;padding:0;overflow:visible;margin-left:auto}
   .nav-list{flex-direction:row;align-items:center;gap:var(--space-2);position:relative}
-  .nav-list>li{border:0;position:static}
+  .nav-list>li{border:0;position:static;opacity:1;transform:none;transition:none}
   .nav-list>li>a,.sub-toggle{min-height:var(--header-h);padding:0 12px;font-size:17px;letter-spacing:.01em;position:relative}
   .nav-list>li>a::after,.sub-toggle::after{
     content:"";position:absolute;left:12px;right:12px;bottom:0;height:2px;
@@ -267,7 +268,7 @@ body[data-page="divisions"] .nav-divisions>.sub-toggle{color:var(--color-accent)
 }
 .hero .wrap{position:relative;z-index:1}
 .hero h1{color:#fff;max-width:17ch}
-.hero h1 em{font-style:normal;color:var(--color-accent-400)}
+.hero h1 em{font-style:normal;color:var(--color-accent-300)}
 .hero-lede{font-size:clamp(16.5px,2.4vw,20px);max-width:56ch;color:color-mix(in srgb,#fff 82%,transparent);margin-bottom:var(--space-8)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3)}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;margin-bottom:var(--space-6);
@@ -289,6 +290,13 @@ body[data-page="divisions"] .nav-divisions>.sub-toggle{color:var(--color-accent)
 .slider-dots{display:flex;gap:8px;align-items:center}
 .slider-dots button{position:relative;overflow:hidden;width:30px;height:3px;padding:0;border:0;background:rgba(255,255,255,.4);cursor:pointer}
 .slider-dot-fill{position:absolute;inset:0 auto 0 0;width:0;height:100%;background:#fff}
+.slider-pause{width:26px;height:26px;margin-left:6px;border-radius:50%;overflow:visible;
+  background:rgba(255,255,255,.22);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.slider-pause:hover{background:rgba(255,255,255,.36)}
+.slider-pause svg{width:14px;height:14px;color:#fff}
+.slider-pause .icon-play{display:none}
+.slider-pause[aria-pressed="true"] .icon-pause{display:none}
+.slider-pause[aria-pressed="true"] .icon-play{display:block}
 @keyframes slider-in{from{opacity:.35}to{opacity:1}}
 @keyframes slider-content-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
@@ -309,6 +317,43 @@ body[data-page="divisions"] .nav-divisions>.sub-toggle{color:var(--color-accent)
 .hero-video-caption h1 .word-accent{color:var(--color-accent-300)}
 .hero-video-caption h1 em{display:block}
 .hero-video-caption .hero-actions{justify-content:center}
+
+/* slogan hover animation: "Excellence" flies through "through" (which
+   vanishes on contact) and on out past "Innovation" (which pulses to life
+   as it's uncovered), then everything eases back to its resting order.
+   Distances are measured live in JS and passed in via --slogan-to-* so the
+   motion always matches the rendered word widths at any viewport size. */
+.slogan-word{display:inline-block}
+.hero-video-caption h1.is-animating{white-space:nowrap}
+.hero-video-caption h1.is-animating [data-slogan-word="excellence"]{
+  animation:slogan-fly 2.1s var(--ease) 1;
+}
+.hero-video-caption h1.is-animating [data-slogan-word="through"]{
+  animation:slogan-vanish 2.1s var(--ease) 1;
+}
+.hero-video-caption h1.is-animating [data-slogan-word="innovation"]{
+  animation:slogan-reveal 2.1s var(--ease) 1;
+}
+@keyframes slogan-fly{
+  0%,100%{transform:translateX(0) scale(1);filter:blur(0);opacity:1}
+  24%{transform:translateX(var(--slogan-to-through,0)) scale(1);filter:blur(0);opacity:1}
+  34%{transform:translateX(var(--slogan-to-through,0)) scale(.94);filter:blur(1.5px);opacity:.8}
+  58%{transform:translateX(var(--slogan-to-innovation,0)) scale(.94);filter:blur(1.5px);opacity:.8}
+  68%{transform:translateX(var(--slogan-to-innovation,0)) scale(1);filter:blur(0);opacity:1}
+  88%{transform:translateX(calc(var(--slogan-to-through,0) * .35)) scale(1);filter:blur(0);opacity:1}
+}
+@keyframes slogan-vanish{
+  0%,16%,94%,100%{opacity:1;transform:scale(1)}
+  30%,80%{opacity:0;transform:scale(.4)}
+}
+@keyframes slogan-reveal{
+  0%,42%,100%{transform:scale(1);filter:brightness(1)}
+  56%,66%{transform:scale(1.1);filter:brightness(1.3)}
+  82%{transform:scale(1);filter:brightness(1)}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-video-caption h1.is-animating [data-slogan-word]{animation:none}
+}
 @media (min-width:601px){.hero-video-caption h1{text-wrap:balance}}
 
 /* division cards, pulled up over the banner */
@@ -429,10 +474,11 @@ a.card:hover{text-decoration:none}
 .figure>img{width:100%;height:100%;aspect-ratio:auto 4/3;object-fit:cover}
 .figure--tall>img{aspect-ratio:auto 3/4}
 .figure--wide>img{aspect-ratio:auto 16/9}
-.lab-slider{background:#3476cc;aspect-ratio:16/9}
+.lab-slider{background:var(--color-surface);aspect-ratio:16/9}
 .lab-slides,.lab-slide{position:absolute;inset:0;width:100%;height:100%}
 .lab-slide{aspect-ratio:auto 16/9;object-fit:cover;object-position:center;display:none}
 .lab-slide.is-active{display:block;animation:slider-in .7s var(--ease)}
+.lab-slider::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:linear-gradient(180deg,transparent,rgba(10,24,38,.55));pointer-events:none}
 .lab-slider>.slider-dots{position:absolute;z-index:1;left:50%;bottom:14px;transform:translateX(-50%)}
 .lab-slider>.slider-dots button{background:rgba(255,255,255,.52)}
 @media (max-width:600px){.hero--slider{min-height:560px}.hero-slide img{object-position:58% center}.hero-slide figcaption{justify-content:flex-end;padding-bottom:90px}.hero-slide h1{font-size:clamp(32px,10vw,48px)}.hero-controls{bottom:22px}.hero--video{min-height:560px}.hero-video{object-position:58% center}.hero-video-caption{justify-content:flex-end;padding-bottom:90px}.hero-video-caption h1{font-size:clamp(32px,10vw,48px)}}
@@ -457,7 +503,8 @@ a.card:hover{text-decoration:none}
 .marquee--clients .logo-cell{height:clamp(88px,14vw,118px)}
 @media (prefers-reduced-motion:reduce){
   .page-loader-mark{animation:none}
-  .marquee-track{animation:none;width:100%;flex-wrap:wrap;justify-content:center;gap:var(--space-4)}
+  .marquee-track{animation:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:var(--space-4)}
+  .marquee-track .logo-cell{width:auto}
   .marquee{mask-image:none}
 }
 
@@ -562,6 +609,8 @@ a.card:hover{text-decoration:none}
   transition:background .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease)
 }
 .anchors a:hover{background:color-mix(in srgb,#fff 12%,transparent);border-color:#fff;transform:translateY(-3px);text-decoration:none}
+.anchors a.is-active{background:#fff;border-color:#fff;color:var(--color-accent-900)}
+.anchors a.is-active i{background-color:var(--color-accent-900)}
 .anchors i{
   width:20px;height:20px;flex:none;display:inline-block;
   background-color:#fff;

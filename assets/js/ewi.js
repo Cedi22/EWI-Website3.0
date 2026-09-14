@@ -16,13 +16,15 @@
   /* ---- initial page loading ----------------------------------------- */
   /* ---- image slider ---------------------------------------------------
      Plain fade slider: .hero-slide/.lab-slide stack via CSS opacity,
-     .is-active toggles which one shows. Single setInterval auto-advances,
-     runs continuously — not paused by hover/focus/dot clicks. The fade
+     .is-active toggles which one shows. Single setInterval auto-advances;
+     mouse hover, keyboard focus and the pause/play toggle button each
+     independently suspend it (WCAG 2.2.2 — the toggle is what gives touch
+     and screen-reader users, who have no hover, a way to stop it). The fade
      transition itself is disabled under prefers-reduced-motion via CSS
      (near-zero transition duration), so slides still rotate but swap
-     instantly instead of fading — auto-advance keeps running either way.
-     No arrows, no links — each dot doubles as a countdown bar that fills
-     over the interval so the time to the next slide is visible. */
+     instantly instead of fading. No arrows, no links — each dot doubles as
+     a countdown bar that fills over the interval so the time to the next
+     slide is visible. */
 
   var initFadeSlider = function (slider) {
     if (slider.dataset.sliderInited) return;
@@ -36,7 +38,7 @@
     var interval = Number(slider.dataset.interval) || 6000;
     var current = Math.max(0, slides.findIndex(function (s) { return s.classList.contains('is-active'); }));
     var timer = null;
-    var paused = false;
+    var pauseFlags = {};
     var dots = [];
 
     if (dotsWrap) slides.forEach(function (_, i) {
@@ -51,6 +53,25 @@
       dotsWrap.appendChild(dot);
       dots.push({ el: dot, fill: fill });
     });
+
+    /* Pause/play toggle: the only way a touch or assistive-tech user (no
+       hover) can stop the auto-advance — required for WCAG 2.2.2. */
+    var pauseBtn = null;
+    if (dotsWrap) {
+      pauseBtn = d.createElement('button');
+      pauseBtn.type = 'button';
+      pauseBtn.className = 'slider-pause';
+      pauseBtn.setAttribute('aria-pressed', 'false');
+      pauseBtn.setAttribute('aria-label', 'Pause slideshow');
+      pauseBtn.innerHTML = '<i class="icon-pause" data-lucide="pause" aria-hidden="true"></i><i class="icon-play" data-lucide="play" aria-hidden="true"></i>';
+      pauseBtn.addEventListener('click', function () {
+        var nowPaused = pauseBtn.getAttribute('aria-pressed') !== 'true';
+        pauseBtn.setAttribute('aria-pressed', String(nowPaused));
+        pauseBtn.setAttribute('aria-label', nowPaused ? 'Play slideshow' : 'Pause slideshow');
+        setPause('manual', nowPaused);
+      });
+      dotsWrap.appendChild(pauseBtn);
+    }
 
     function showSlide(index) {
       current = (index + slides.length) % slides.length;
@@ -75,26 +96,32 @@
     function nextSlide() { showSlide(current + 1); }
     function prevSlide() { showSlide(current - 1); }
 
+    function isPaused() {
+      for (var reason in pauseFlags) { if (pauseFlags[reason]) return true; }
+      return false;
+    }
+
     function startTimer() {
       window.clearInterval(timer);
-      if (!paused) timer = window.setInterval(nextSlide, interval);
+      if (!isPaused()) timer = window.setInterval(nextSlide, interval);
     }
 
-    function pauseSlider() {
-      paused = true;
-      window.clearInterval(timer);
-    }
-
-    function resumeSlider() {
-      paused = false;
+    function setPause(reason, value) {
+      pauseFlags[reason] = value;
       startTimer();
     }
 
     if (next) next.addEventListener('click', function () { nextSlide(); startTimer(); });
     if (prev) prev.addEventListener('click', function () { prevSlide(); startTimer(); });
 
-    slider.addEventListener('mouseenter', pauseSlider);
-    slider.addEventListener('mouseleave', resumeSlider);
+    /* Hover (mouse) and keyboard focus each pause independently of the
+       manual toggle, so leaving one doesn't cancel a pause set by another. */
+    slider.addEventListener('mouseenter', function () { setPause('hover', true); });
+    slider.addEventListener('mouseleave', function () { setPause('hover', false); });
+    slider.addEventListener('focusin', function () { setPause('focus', true); });
+    slider.addEventListener('focusout', function (e) {
+      if (!slider.contains(e.relatedTarget)) setPause('focus', false);
+    });
 
     showSlide(current);
     startTimer();
@@ -102,11 +129,54 @@
 
   Array.prototype.forEach.call(d.querySelectorAll('[data-slider]'), initFadeSlider);
 
-  /* ---- hero video ------------------------------------------------------ */
-  var heroVideo = d.querySelector('.hero-video');
-  if (heroVideo && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    heroVideo.removeAttribute('autoplay');
-    heroVideo.pause();
+  /* ---- hero video ------------------------------------------------------
+     Its <source> is added here (not in the markup) so it doesn't start
+     downloading before this script decides to attach it. Forced on
+     regardless of reduced-motion for now — the reduced-motion fallback
+     image is temporarily disabled. */
+  var heroVideo = d.querySelector('video.hero-video');
+  if (heroVideo) {
+    var videoSrc = heroVideo.getAttribute('data-src');
+    if (videoSrc) {
+      var source = d.createElement('source');
+      source.src = videoSrc;
+      source.type = 'video/mp4';
+      heroVideo.appendChild(source);
+      heroVideo.load();
+      heroVideo.play().catch(function () {});
+    }
+  }
+
+  /* ---- slogan hover animation ------------------------------------------
+     "Excellence" flies across, through "through" (which vanishes on
+     contact) and on past "Innovation" (which pulses as it's uncovered),
+     then everything eases back to its resting order. Travel distances are
+     measured from the live layout on each hover so it stays correct at
+     any viewport width; if the words have wrapped onto separate lines
+     the animation is skipped rather than run sideways. */
+  var sloganHeading = d.querySelector('.hero-video-caption h1.slogan');
+  if (sloganHeading && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    var wExcellence = sloganHeading.querySelector('[data-slogan-word="excellence"]');
+    var wThrough = sloganHeading.querySelector('[data-slogan-word="through"]');
+    var wInnovation = sloganHeading.querySelector('[data-slogan-word="innovation"]');
+    if (wExcellence && wThrough && wInnovation) {
+      var playSlogan = function () {
+        if (sloganHeading.classList.contains('is-animating')) return;
+        var rE = wExcellence.getBoundingClientRect();
+        var rT = wThrough.getBoundingClientRect();
+        var rI = wInnovation.getBoundingClientRect();
+        if (Math.round(rE.top) !== Math.round(rT.top) || Math.round(rT.top) !== Math.round(rI.top)) return;
+        var toThrough = rT.left - rE.left;
+        var toInnovation = (rI.right - (rE.left + rE.width)) + 12;
+        sloganHeading.style.setProperty('--slogan-to-through', toThrough + 'px');
+        sloganHeading.style.setProperty('--slogan-to-innovation', toInnovation + 'px');
+        sloganHeading.classList.add('is-animating');
+      };
+      sloganHeading.addEventListener('mouseenter', playSlogan);
+      sloganHeading.addEventListener('animationend', function (e) {
+        if (e.target === wExcellence) sloganHeading.classList.remove('is-animating');
+      });
+    }
   }
 
   /* ---- mobile nav ---------------------------------------------------- */
@@ -120,7 +190,7 @@
       d.body.style.overflow = !open && window.innerWidth < 1024 ? 'hidden' : '';
     });
     nav.addEventListener('click', function (e) {
-      if (e.target.closest('a') && window.innerWidth < 1024) {
+      if (e.target.closest('a') && !e.target.closest('.sub-toggle') && window.innerWidth < 1024) {
         toggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('is-open');
         d.body.style.overflow = '';
@@ -207,6 +277,35 @@
       track.innerHTML += track.innerHTML;
     });
   }
+
+  /* ---- anchor pill scroll-spy (Divisions/Partners/Clients) ----------- */
+  var anchorsWrap = d.querySelector('.anchors');
+  if (anchorsWrap && 'IntersectionObserver' in window) {
+    var anchorLinks = Array.prototype.slice.call(anchorsWrap.querySelectorAll('a[href^="#"]'));
+    var anchorSections = [];
+    anchorLinks.forEach(function (a) {
+      var section = d.getElementById(a.getAttribute('href').slice(1));
+      if (section) anchorSections.push({ link: a, section: section });
+    });
+    if (anchorSections.length) {
+      var setActiveAnchor = function (section) {
+        anchorSections.forEach(function (entry) {
+          entry.link.classList.toggle('is-active', entry.section === section);
+        });
+      };
+      var aio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActiveAnchor(entry.target);
+        });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+      anchorSections.forEach(function (entry) { aio.observe(entry.section); });
+    }
+  }
+
+  /* ---- decorative corner marks: hide from assistive tech ------------- */
+  Array.prototype.forEach.call(d.querySelectorAll('.corner'), function (el) {
+    el.setAttribute('aria-hidden', 'true');
+  });
 
   /* ---- current year -------------------------------------------------- */
   Array.prototype.forEach.call(d.querySelectorAll('[data-year]'), function (el) {
