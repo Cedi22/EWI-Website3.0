@@ -1,27 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.eastwestint.qa/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/logo.png</image:loc>
+      <image:title>East West Trading International (EWI) Logo</image:title>
+      <image:caption>East West Trading International — Qatari distributor and engineering services</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/footer-logo-rm-bg.png</image:loc>
+      <image:title>EWI Emblem</image:title>
+      <image:caption>EWI Corporate Emblem Doha Qatar</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.eastwestint.qa/about.php</loc>
+    <loc>https://www.eastwestint.qa/about.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/logo.png</image:loc>
+      <image:title>About EWI Qatar</image:title>
+      <image:caption>East West Trading International history, leadership, and Doha facilities</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.eastwestint.qa/divisions.php</loc>
+    <loc>https://www.eastwestint.qa/divisions.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/logo.png</image:loc>
+      <image:title>EWI Operating Divisions</image:title>
+      <image:caption>Lab Systems, Electrical Division, Network and Data Centre, and Cyber Security in Qatar</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.eastwestint.qa/services.php</loc>
+    <loc>https://www.eastwestint.qa/services.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/logo.png</image:loc>
+      <image:title>EWI Engineering &amp; Supply Services</image:title>
+      <image:caption>Turnkey lab fit-out, electrical supply, data centre infrastructure and cyber security services</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.eastwestint.qa/partners.php</loc>
+    <loc>https://www.eastwestint.qa/partners.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/logo.png</image:loc>
+      <image:title>EWI Global Principal Partner Brands</image:title>
+      <image:caption>Authorised manufacturer representation portfolio in Qatar</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.eastwestint.qa/clients.php</loc>
+    <loc>https://www.eastwestint.qa/clients.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/logo.png</image:loc>
+      <image:title>EWI Institutional &amp; Industrial Clients</image:title>
+      <image:caption>Government, energy, healthcare, and research clients supplied by EWI in Qatar</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.eastwestint.qa/contact.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.eastwestint.qa/assets/logo.png</image:loc>
+      <image:title>Contact EWI Qatar</image:title>
+      <image:caption>Contact East West Trading International Doha Qatar office, telephone, WhatsApp and RFQ</image:caption>
+    </image:image>
   </url>
 </urlset>

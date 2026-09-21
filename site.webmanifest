@@ -1,0 +1,21 @@
+{
+  "name": "East West Trading International",
+  "short_name": "EWI Qatar",
+  "description": "Distributor and engineering services provider in Doha, Qatar: Lab Systems, Electrical Division, Network & Data Centre, and Cyber Security.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f2f2f3",
+  "theme_color": "#1d2d3d",
+  "icons": [
+    {
+      "src": "assets/footer-logo-rm-bg.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/footer-logo-rm-bg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

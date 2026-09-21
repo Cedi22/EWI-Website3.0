@@ -130,21 +130,26 @@
   Array.prototype.forEach.call(d.querySelectorAll('[data-slider]'), initFadeSlider);
 
   /* ---- hero video ------------------------------------------------------
-     Its <source> is added here (not in the markup) so it doesn't start
-     downloading before this script decides to attach it. Forced on
-     regardless of reduced-motion for now — the reduced-motion fallback
-     image is temporarily disabled. */
+     Plays on every device. The markup already carries <source> plus
+     autoplay/muted/playsinline, so it starts without this script; this
+     only nudges browsers that block autoplay (iOS Low Power Mode, data
+     saver) by retrying on the first touch/click/scroll and whenever the
+     tab becomes visible again. */
   var heroVideo = d.querySelector('video.hero-video');
   if (heroVideo) {
-    var videoSrc = heroVideo.getAttribute('data-src');
-    if (videoSrc) {
-      var source = d.createElement('source');
-      source.src = videoSrc;
-      source.type = 'video/mp4';
-      heroVideo.appendChild(source);
-      heroVideo.load();
-      heroVideo.play().catch(function () {});
-    }
+    heroVideo.muted = true;
+    var playHero = function () {
+      if (!heroVideo.paused) return;
+      var p = heroVideo.play();
+      if (p && p.catch) p.catch(function () {});
+    };
+    playHero();
+    ['touchstart', 'click', 'scroll', 'keydown'].forEach(function (evt) {
+      window.addEventListener(evt, playHero, { passive: true, once: true });
+    });
+    d.addEventListener('visibilitychange', function () {
+      if (!d.hidden) playHero();
+    });
   }
 
   /* ---- slogan hover animation ------------------------------------------
@@ -311,6 +316,39 @@
   Array.prototype.forEach.call(d.querySelectorAll('[data-year]'), function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  /* ---- contact form handler ------------------------------------------ */
+  var contactForm = d.getElementById('contact-form');
+  var successAlert = d.getElementById('form-success');
+  if (contactForm && successAlert) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = (d.getElementById('cf-name') || {}).value || '';
+      var email = (d.getElementById('cf-email') || {}).value || '';
+      var phone = (d.getElementById('cf-phone') || {}).value || '';
+      var company = (d.getElementById('cf-company') || {}).value || '';
+      var division = (d.getElementById('cf-division') || {}).value || 'General Inquiry';
+      var subject = (d.getElementById('cf-subject') || {}).value || ('Message from ' + (name || 'Website Visitor'));
+      var message = (d.getElementById('cf-message') || {}).value || '';
+
+      var body = 'Name: ' + name + '\n' +
+                 (company ? ('Company: ' + company + '\n') : '') +
+                 'Email: ' + email + '\n' +
+                 'Phone: ' + phone + '\n' +
+                 'Topic / Division: ' + division + '\n\n' +
+                 'Message:\n' + message;
+
+      var mailtoUrl = 'mailto:eastwest@qatar.net.qa' +
+                      '?subject=' + encodeURIComponent('[' + division + '] ' + subject) +
+                      '&body=' + encodeURIComponent(body);
+
+      successAlert.classList.add('is-visible');
+      successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Trigger mailto client
+      window.location.href = mailtoUrl;
+    });
+  }
 
   /* ---- icons --------------------------------------------------------- */
   function drawIcons() {

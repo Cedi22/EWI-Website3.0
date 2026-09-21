@@ -1,129 +1,151 @@
 # EWI Website — Usability / UX Audit
 
-Scope: full static/PHP site (`index.php`, `about.php`, `divisions.php`, `services.php`, `partners.php`, `clients.php`, shared `partials/header.php` + `partials/footer.php`, `assets/css/ewi.css`, `assets/js/ewi.js`). Read-only review, no files changed. Framework: Zonka Feedback usability survey pillars — usability, effectiveness, efficiency, satisfaction, navigation, design, content, mobile, performance.
+Scope: the static site (`index.html`, `about.html`, `divisions.html`, `services.html`, `partners.html`, `clients.html`, `404.html`, `assets/css/ewi.css`, `assets/js/ewi.js`, `.htaccess`). Framework: Zonka Feedback usability survey pillars — usability, effectiveness, efficiency, satisfaction, navigation, design, content, mobile, performance.
 
-Overall: strong technical foundation (semantic markup, focus-visible states, reduced-motion handling, mobile-first CSS, structured data, skip link). Main gaps are content polish (placeholder imagery, encoding bug), one shipped performance regression (uncompressed hero video), and a few accessibility/interaction rough edges in custom JS widgets.
+**Status updated 2026-09-14.** The site is now plain HTML/CSS/JS (the PHP version is archived in `Trash/`). Findings are marked **Fixed** or **Open**.
+
+Overall: strong technical foundation (semantic markup, focus-visible states, reduced-motion handling, mobile-first CSS, structured data, skip link). Most earlier defects are fixed. What remains is mainly content (placeholder photography), the lack of an on-page enquiry form, and minor polish.
 
 ---
 
 ## 1. Navigation
 
 **Works well**
-- Sticky header, current-page state via `body[data-page]` (`partials/header.php:97-127`, `ewi.css:204-231`) — user always knows where they are.
-- Divisions mega-menu (hover on desktop, accordion on mobile) exposes all 4 divisions from every page without a click-through — reduces path length (Zonka "page placement" principle).
-- Breadcrumbs on every inner page (`Home / About` etc.) — good orientation, low effort to add elsewhere.
-- Skip-to-content link (`partials/header.php:75`) and `:focus-visible` outline (`ewi.css:71-72`) — real keyboard support, not just a visual afterthought.
-- WhatsApp floating button + persistent utility bar (phone/WhatsApp/email/hours) on every page — contact is never more than one glance away.
+- Sticky header, current-page state via `body[data-page]` — user always knows where they are.
+- Divisions mega-menu (hover on desktop, accordion on mobile) exposes all 4 divisions from every page.
+- Breadcrumbs on every inner page.
+- Skip-to-content link and `:focus-visible` outline — real keyboard support.
+- WhatsApp floating button + persistent utility bar (phone/WhatsApp/email/hours) on every page.
 
-**Problems**
-- No visible "You are here" state for anchor sub-sections (`divisions.php#lab`, `#electrical`...) — the anchor pills at the top of Divisions/Partners/Clients pages don't get an active/current style on scroll, so a user who scrolls past Lab into Electrical loses the pill-based progress cue.
-- Footer duplicates the main nav 1:1 (Divisions + Company links) but adds no new destinations (no sitemap, no privacy/terms, no careers) — footer is currently just a scroll-shortcut, not an expansion of the site's information architecture.
-- No 404 page found in repo — an unhandled path falls to Apache/PHP default error output, breaking the site's visual continuity for anyone who mistypes a URL or follows a stale link.
+**Findings**
+- **Fixed** — Anchor pills on Divisions/Partners/Clients now highlight the section in view (scroll-spy in `ewi.js`, `.anchors a.is-active` in `ewi.css`).
+- **Fixed** — Branded 404 page (`404.html`), wired through `.htaccess` with a real 404 status, in any install folder.
+- **Open** — Footer duplicates the main nav 1:1 and adds no new destinations (no privacy/terms, no careers).
 
 ---
 
 ## 2. Layout & Visual Hierarchy
 
 **Works well**
-- Consistent section rhythm: kicker → h2 → supporting copy → grid, repeated across all 5 inner pages. Predictable scanning pattern (Zonka "design consistency").
-- Clear F-pattern hero → stats bar → content split → CTA on every page; CTA band at the bottom of literally every page reinforces the one primary action (email/WhatsApp/call).
-- `.blueprint` corner-mark motif and consistent card treatment give the brand a distinct, coherent visual system rather than generic template-blue.
+- Consistent section rhythm: kicker → h2 → supporting copy → grid, on every page.
+- CTA band at the bottom of every page reinforces the one primary action (email/WhatsApp/call).
+- `.blueprint` corner-mark motif gives the brand a distinct, coherent visual system.
 
-**Problems**
-- Every page ends in near-identical "Send us the [spec/scope/requirement]" CTA blocks with the same three buttons. Effective for conversion, but combined with the footer duplication above, roughly the bottom third of every page is repeated boilerplate — increases perceived scroll depth for content that's already been seen.
-- Hero headline font size is `clamp(40px, 6vw, 72px)` for the animated slogan (`ewi.css:304-305`) but only on the homepage; inner-page `.page-hero h1` content is denser (a full sentence, e.g. "Two decades of getting technical scopes delivered in Qatar") set at the smaller `h1{clamp(34px,7.4vw,58px)}` scale — fine individually, but the visual "weight" of the homepage hero vs. inner-page heroes differs enough that navigating from Home to any other page feels like a step down in production value.
+**Findings**
+- **Open** — Every page ends in a near-identical "Send us the …" CTA block with the same buttons; with the footer, the bottom third of each page is repeated boilerplate.
+- **Open** — The homepage hero (video + large animated slogan) is visually heavier than the inner-page heroes, so moving from Home to an inner page feels like a step down.
 
 ---
 
 ## 3. Content Clarity
 
 **Works well**
-- Copy is specific and jargon-appropriate for the audience (B2B procurement/engineering) — "Bill-of-quantity pricing," "IQ/OQ," "DCIM/AIM" are correct register, not marketing fluff.
-- Each of the 4 divisions gets its own consistent structure: kicker → tags → 2 paragraphs → checklist → principal-brand grid. Easy to compare divisions against each other.
+- Copy is specific and in the right register for B2B procurement/engineering ("Bill-of-quantity pricing", "IQ/OQ", "DCIM/AIM").
+- Each division uses the same structure (kicker → tags → paragraphs → checklist → principal logos), so divisions are easy to compare.
+- Alt text is descriptive.
 
-**Problems — confirmed in source**
-- **Character-encoding bug**: several `alt` attributes contain literal mojibake (`â€"` where an em dash or `ü` should be), from double-encoded UTF-8. Confirmed at:
-  - `clients.php:32` — `alt="Ashghal â€" Public Works Authority"`
-  - `clients.php:33` — `alt="Kahramaa â€" Qatar General Electricity & Water"`
-  - `clients.php:89` — `alt="College of the North Atlantic â€" Qatar"`
-  - `partners.php:3` (meta description) and `index.php:192`, `partners.php:61`, `divisions.php:137` — `alt="WeidmÃ¼ller"` (should be "Weidmüller")
-  This text is read aloud by screen readers exactly as broken, and is indexed by search engines as garbled alt text — a real accessibility and SEO defect, not just cosmetic.
-- **Placeholder imagery in production**: figure images across About, Home, Services, Divisions use literal placeholder filenames — `warehouse-placeholder.jpg` (`index.php:111`, `about.php:31`), `electrical-placeholder.png` (`divisions.php:130`), `cybersecurity-placeholder.jpg` (`divisions.php:207`), plus a `data-centre.jpg` under `assets/placeholders/`. For a company whose entire pitch is "20 years of real projects for QatarEnergy, Hamad Medical, Qatar Rail..." (per the stats bar and Clients page), showing stock/placeholder photography directly undercuts the credibility argument the copy is making — this is the single highest-impact content fix available (Zonka "satisfaction/trust" pillar).
-- Alt text quality is otherwise good (descriptive, not "image123.jpg"), and decorative images are correctly hidden from assistive tech (`index.php:12`, `hero-fallback-img ... hidden`).
+**Findings**
+- **Fixed** — Mojibake in alt text / meta description (`â€"`, `WeidmÃ¼ller`) replaced with HTML entities (`&mdash;`, `&uuml;`).
+- **Fixed** — Favicon, social-share image and schema logo pointed at a non-existent `assets/ewi-logo.png`. Favicon now uses the EWI emblem (`assets/footer-logo-rm-bg.png`); share image and schema use `assets/logo.png`.
+- **Open — highest-impact content fix.** Placeholder photography is still live:
+  - `assets/placeholders/warehouse-placeholder.jpeg` — Home "Who we are", About "Our story"
+  - `assets/electrical-placeholder.png` — Divisions / Electrical
+  - `assets/placeholders/data-centre.jpg` — Divisions / Network & Data Centre
+  - `assets/cybersecurity-placeholder.jpg` — Divisions / Cyber Security
+
+  For a company whose pitch is "20 years of real projects for QatarEnergy, Hamad Medical, Qatar Rail…", stock/placeholder photos undercut that credibility.
 
 ---
 
 ## 4. Forms
 
-- **There are no HTML forms anywhere in the site.** All "enquiry" paths are `mailto:`, `tel:`, or `wa.me` links (confirmed in `partials/footer.php`, every page's CTA band, and `INSTRUCTIONS.md:34`, which states this is intentional, not an oversight).
-- This is a legitimate design choice for a B2B distributor, but it has real friction costs Zonka's "efficiency" pillar flags directly:
-  - A `mailto:` link does nothing on a device with no configured desktop mail client (very common on shared/work PCs, Chromebooks, or anyone using Gmail/Outlook web only) — the click silently fails or opens an OS "choose an app" dialog with no fallback.
-  - There's no way to capture a lead's name, company, or requirement in-page — every enquiry starts a blank email with only a `subject=` pre-fill, so the visitor must retype context the site already knows (which division, which page they were on).
-  - No lead is captured if the click fails, so the business likely has no visibility into who tried to convert and couldn't.
-- Recommendation: keep the `mailto`/WhatsApp options (they're genuinely fast for a phone-in-hand user) but add one lightweight on-page form (name, email, division dropdown pre-filled from the anchor the user came from, message) as a fallback path — this closes the biggest usability gap on the site without touching the site's design language.
+- **Updated & Friendly (v2-05, 2026-09-21)** — Refactored [`contact.html`](contact.html) form into a human-friendly "Get in touch with us!" experience.
+  - Simplified labels and placeholders (Your Name, Company/Organization (Optional), Email Address, Phone Number, Topic selection, Subject, Your Message).
+  - Wired 4 direct communication channel cards with dedicated icons (`telephone.png`, `whatsapp.png`, `messenger.png`, `mail.png`).
+  - Removed technical "Specialized Desks" section to streamline layout.
+- **Fixed (v2-04, 2026-09-21)** — Dedicated on-page enquiry and RFQ form built on [`contact.html`](contact.html).
+  - Captures Full Name, Organization, Email, Telephone, Operating Division (dropdown), Project/BOQ reference, and Scope/Requirement textarea.
+  - Includes client-side validation, visual feedback alert card, and instant mailto client launching without breaking the zero-runtime static architecture.
+  - Complemented by direct click-to-call (`+974 4465 4878`), WhatsApp instant chat (`+974 7049 7307`), and interactive Google Map for Doha headquarters.
 
 ---
 
 ## 5. Mobile Responsiveness
 
 **Works well**
-- Genuinely mobile-first CSS: base styles are unprefixed, desktop rules are gated behind `@media (min-width:1024px)` (`ewi.css:212` for nav, `:355/356` for division cards, `:402/403` for grids). This is the correct authoring direction and it shows — nothing here looks like a desktop site squeezed into a media query.
-- Full-screen slide-in mobile nav with proper `aria-expanded`, `Escape`-to-close, and body-scroll lock while open (`assets/js/ewi.js:166-185`) — well-built, not just a CSS toggle.
-- Utility bar intelligently drops the "hours" text and the flex spacer under 860px (`ewi.css:141-145`) rather than letting it wrap awkwardly.
-- Hero video is explicitly skipped under `(max-width:767px)` in favour of a static fallback image (`ewi.js:112-119`) — correct call for mobile data/battery.
+- Genuinely mobile-first CSS; desktop rules gated behind `min-width` media queries.
+- Full-screen slide-in mobile nav with `aria-expanded`, Escape-to-close and body scroll lock.
+- Utility bar drops the hours text on narrow screens rather than wrapping.
 
-**Problems**
-- The homepage hero video only skips on `max-width:767px`; **it does not check connection speed** (`navigator.connection.saveData` / `effectiveType`), so a phone in landscape (>767px reported width) or a small tablet still triggers the full video fetch.
-- The lab image slider on Divisions (`divisions.php:79-88`) auto-advances every 2.6s and only pauses on `mouseenter`/`mouseleave` (`ewi.js:96-97`) — there is no touch/tap pause and no keyboard-focus pause, so on a touchscreen (the majority of real-world mobile traffic) the slide can change mid-read with no way to stop it. This is a WCAG 2.2.2 (Pause, Stop, Hide) miss specifically on mobile, where the hover escape hatch doesn't exist.
-- `.wa-float` (floating WhatsApp button) collapses to an icon-only 56px button under 520px (`ewi.css:570`) — good density decision, but it sits fixed on screen for the entire visit and was not checked against the mobile nav toggle / header CTA for overlap on very short viewports (e.g. landscape phones ~375×667 rotated).
+**Findings**
+- **Fixed** — Divisions lab slider now has a pause/play button and pauses on hover and keyboard focus (WCAG 2.2.2).
+- **Changed by decision** — The hero video now plays on every device, including phones (autoplay + muted + playsinline, with a retry on first touch for iOS Low Power Mode). Cost: ~3.4 MB on mobile data per homepage visit.
+- **Open** — `.wa-float` (fixed WhatsApp button) has not been checked for overlap with page content on very short landscape phone viewports.
 
 ---
 
 ## 6. Performance
 
-- **Confirmed shipped regression**: `index.php:11` points the hero `<video>` at `assets/video/0909.mp4`, a **6MB** file (the JS's own code comment at `ewi.js:106-109` says "The mp4 is 6MB, too heavy to fetch on mobile"). Two compressed alternates already exist on disk — `assets/video/0909_compress.mp4` and `0909_compress_optimized.mp4` (~3.4MB each, per `ls`) — but **neither is referenced anywhere in the codebase**. Every desktop visitor to the homepage is currently downloading the uncompressed original; the compression work was done but never wired up. This is the single highest-leverage, lowest-risk performance fix available (swap the `data-src` and delete/replace the old file).
-- Icon library is pulled from a public CDN with **no version pin protection beyond the URL itself** (`https://unpkg.com/lucide@0.469.0/...`, `partials/footer.php:57`) and **no `defer`/`async`**, and it sits before `ewi.js` which calls `lucide.createIcons()` — a slow or blocked CDN request delays every icon on the page (nav, buttons, checklists) until it resolves, and there's no local fallback if unpkg is down.
-- Google Fonts is loaded render-blocking via `<link rel="stylesheet">` with `preconnect` (`partials/header.php:35-37`) — reasonable mitigation, but `font-display:swap` relies on the Google-served CSS actually including it (not verified in this review since it's a remote resource).
-- Images throughout use `loading="lazy"` and explicit `width`/`height` correctly on logo grids and marquees (prevents layout shift) — this is done well and consistently across all 5 pages.
-- The client/partner logo marquees are duplicated in the DOM via JS (`track.innerHTML += track.innerHTML`, `ewi.js:257-262`) to fake a seamless CSS loop — doubles the image requests for every marquee on every page load (mitigated by `loading="lazy"` and the images being small, but worth knowing it's ~2x the logo count in the DOM).
+- **Fixed** — Hero video uses the compressed `assets/video/0909_compress_optimized.mp4` (H.264, index at the start of the file so it streams immediately). The unused duplicate was moved to `Trash/`.
+- **Fixed** — Fonts are self-hosted (`assets/fonts/`, `font-display:swap`); no Google Fonts request.
+- **Fixed** — Unused images, zips and duplicate logos moved out of `assets/` into `Trash/`.
+- **Open** — Lucide icons still load from `unpkg.com` (end of `<body>`, no local fallback). If unpkg is slow or blocked, icons appear late or not at all, including when the site is opened offline from disk.
+- Good: `loading="lazy"` plus explicit `width`/`height` on logo images prevents layout shift.
+- Note: logo marquees are duplicated in the DOM by JS for a seamless loop (~2× logo nodes; mitigated by lazy loading).
 
 ---
 
 ## 7. Accessibility
 
 **Works well**
-- `:focus-visible` custom outline instead of suppressing focus entirely (`ewi.css:71-72`) — correct pattern (hides focus ring for mouse users, keeps it for keyboard).
-- `prefers-reduced-motion` is respected in three separate places: the slogan animation (`ewi.js:141`), the marquee clone/scroll (`ewi.js:255-262`), and CSS transition overrides (`ewi.css:347`, `496`, `615`) — thorough, not a single blanket rule.
-- ARIA is used correctly, not decoratively: `aria-expanded`/`aria-controls` on the nav toggle and sub-menu button, `aria-live`-equivalent slide state via `aria-hidden` toggling on slider slides (`ewi.js:60`), `aria-label` on icon-only social links and the WhatsApp float.
-- Skip link, semantic `<header>/<nav>/<main>/<footer>`, and one `<h1>` per page are all present and correctly used.
+- Custom `:focus-visible` outline.
+- `prefers-reduced-motion` respected (slogan animation, marquee, reveal, CSS transitions).
+- ARIA used correctly: `aria-expanded`/`aria-controls` on nav toggles, `aria-hidden` slide states, `aria-label` on icon-only links.
+- Skip link, semantic landmarks, one `<h1>` per page, `<html lang="en">`.
 
-**Problems**
-- **Colour contrast is borderline on the primary button.** `.btn-primary` is `background: var(--color-accent) #5980a6` with white text (`ewi.css:109`) at 16px/600-weight — by rough sRGB luminance calculation this lands close to ~4.1–4.2:1, under the WCAG AA 4.5:1 minimum for normal-size text (16px/600 does not qualify as "large text," which needs ≥18.66px bold). This button is the primary CTA repeated on every single page — worth an exact contrast-checker pass and likely a one-shade darker accent (`--color-accent-700` is already defined and used elsewhere in the same file).
-- The lab slider's auto-advance (`ewi.js:78-101`) has no pause/stop control exposed to assistive tech beyond hover — see Mobile section above; this repeats as a WCAG 2.2.2 concern independent of device.
-- Decorative `<i class="corner tl/tr/bl/br">` elements are repeated 4× on nearly every card, section, and slider across all 5 pages — they're empty and untagged (no `aria-hidden="true"`). Most screen readers skip empty elements automatically, but this isn't guaranteed across all AT/browser combinations, and it costs nothing to add `aria-hidden="true"` explicitly.
-- No `lang` attribute changes are needed (all content is English), and no `<html lang>` issues were found — this is correctly set to `en` in `partials/header.php:17`.
+**Findings**
+- **Fixed** — `.btn-primary` now uses `--color-accent-700` (#416180) with white text, well above WCAG AA 4.5:1.
+- **Fixed** — Decorative corner marks get `aria-hidden="true"` (set in `ewi.js`).
+- **Fixed** — Lab slider pause control (see §5).
 
 ---
 
 ## 8. Consistency
 
 **Works well**
-- The shared `partials/header.php` / `partials/footer.php` pattern means nav, meta tags, JSON-LD schema, and footer are identical byte-for-byte across every page — no drift risk from copy-paste page authoring.
-- `$asset_version` cache-busting query string (`partials/header.php:14`, currently `20260907.7`) is applied consistently to both CSS and JS includes.
+- One stylesheet and one script, cache-busted with a `?v=` query string on every page.
 
-**Problems**
-- **Duplicate stale HTML mirrors exist for every page** (`about.html`, `clients.html`, `divisions.html`, `index.html`, `partners.html`, `services.html`). `INSTRUCTIONS.md:39` confirms these are "generated previews only" and that `.php` takes precedence via `DirectoryIndex` — but that only protects the *index* route. Diffing `about.html` against `about.php` shows the static file is pinned to an **older CSS version** (`ewi.css?v=20260907.3` vs. the live `20260907.7`), meaning `about.html` is a stale snapshot. If any of these `.html` files are directly reachable by URL (they are, unless the server explicitly blocks them) or ever got crawled/linked before `.php` existed, they represent duplicate, out-of-date content sitting at a different URL than the canonical page — worth either regenerating them on every deploy or removing them from the public web root entirely.
-- Two versions of a client logo exist (`assets/logos/clients/qapco.png` and `assets/logos/qapco.png` per the earlier file listing) — a minor asset-hygiene item, low risk but worth a one-time cleanup pass to avoid future "which one is current" confusion.
+**Findings**
+- **Fixed** — Stale duplicate `.php`/`.html` pairs are gone: the `.html` files are now the site, and the PHP version is archived in `Trash/`.
+- **Fixed** — Duplicate QAPCO logo (`qapco.svg`) moved to `Trash/`.
+- **Trade-off (new)** — Without PHP includes, the header and footer are copied into each of the 8 pages (`index.html`, `about.html`, `divisions.html`, `services.html`, `partners.html`, `clients.html`, `contact.html`, `404.html`). A nav, contact or footer change must be made in all 8 files.
 
 ---
 
-## Priority Fix List (highest impact → lowest)
+## Open items — priority order
 
-1. **Swap the homepage hero video to the already-compressed file.** `index.php:11` → point `data-src` at `assets/video/0909_compress_optimized.mp4` (or `_compress.mp4`) instead of `0909.mp4`. Cuts ~2.7MB off every desktop homepage load with zero visual cost — the compression work is already done and sitting unused.
-2. **Replace placeholder photography** (`warehouse-placeholder.jpg`, `electrical-placeholder.png`, `cybersecurity-placeholder.jpg`, `data-centre.jpg`) with real project photos. This directly undermines the "20 years, real clients" trust argument the copy is making everywhere else.
-3. **Fix the mojibake alt text** in `clients.php:32,33,89` and every `WeidmÃ¼ller` occurrence (`index.php:192`, `partners.php:3,61`, `divisions.php:137`) — re-save the affected strings as clean UTF-8.
-4. **Add a pause control (or slow/stop on tap) to the Divisions lab slider**, or drop the auto-advance for a manual/dot-only slider — closes the WCAG 2.2.2 gap on touch devices.
-5. **Recheck `.btn-primary` contrast** with an actual contrast-checker tool; if it fails AA, swap to `--color-accent-700` for the button background (already defined, already used elsewhere) or darken text.
-6. **Add a lightweight fallback contact form** (even a single mailto-triggering form with structured fields) alongside the existing mailto/WhatsApp links, to capture visitors whose default mail client isn't configured.
-7. **Regenerate or remove the stale root `.html` files** so they can't be indexed or linked as duplicate/out-of-date content.
-8. Low-effort polish: `aria-hidden="true"` on decorative corner-mark icons; active-state styling for the anchor pills on Divisions/Partners/Clients as the user scrolls; a real 404 page.
+1. **Replace placeholder photography** (§3) with real project photos.
+2. **Fixed (v2-04)** ~~Add a lightweight enquiry form (§4) as a fallback to mailto~~ — Completed with dedicated `contact.html` and RFQ form.
+3. **Fixed (v2-02)** ~~Self-host Lucide icons (§6)~~ — Completed with local `assets/js/lucide.min.js` and 26 Base64 CSS mask icons.
+4. **Check `.wa-float` overlap** on short landscape phones (§5).
+5. Polish: vary the bottom CTA blocks per page; add privacy/terms to the footer.
+
+---
+
+## 9. Changelog & Release Tracking
+
+### Version `ewiv5-v2-05` — 2026-09-21 11:00 UTC+3
+- **User-Friendly Contact Us Experience**: Replaced technical RFQ form on `contact.html` with an inviting, accessible "Get in touch with us!" form featuring human-centered labels (Your Name, Company / Organization (Optional), Email Address, Phone Number, Topic dropdown, Subject, Your Message).
+- **Communication Channel Icons**: Directly wired the 4 primary communication cards to dedicated icons in `assets/icons/` (`telephone.png`, `whatsapp.png`, `messenger.png`, `mail.png`) with interactive hover transitions and direct click-to-call, WhatsApp, direct form messaging, and email actions.
+- **Removed Specialized Desks Section**: Eliminated the redundant division desk cards section from `contact.html` to streamline page focus and improve mobile readability.
+- **Cache Busting**: Bumped asset cache string across all 8 HTML files to `?v=20260921.2`.
+
+### Version `ewiv5-v2-04` — 2026-09-21 10:30 UTC+3
+- **Dedicated Contact Us Page**: Created `contact.html` with interactive RFQ form, office location map (Financial Square, C-Ring Road, Doha), direct contacts grid, and division engineering desk directory.
+- **Navigation CTAs**: Replaced "Request a quote" with "Contact Us" across desktop header CTA and mobile drawer menu on all 8 HTML files (`index.html`, `about.html`, `divisions.html`, `services.html`, `partners.html`, `clients.html`, `contact.html`, `404.html`).
+- **Footer Updates**: Added `contact.html` ("Contact us") to Company links in all 8 HTML files.
+- **Home Hero Action**: Changed hero secondary button from "Contact Us" (`#contact`) to "Explore us" (`divisions.html`).
+- **Icon Architecture Expansion**: Integrated communication icons `whatsapp.png`, `mail.png`, `messenger.png`, and `telephone.png` in `assets/icons/` and embedded them as Base64 data URIs in `assets/css/ewi.css` (`.icon-whatsapp`, `.icon-mail`, `.icon-messenger`, `.icon-telephone`), bringing the total embedded icon count to 26.
+- **Sitemap**: Added `https://www.eastwestint.qa/contact.html` to `sitemap.xml`.
+- **Operating Protocol**: Established mandatory rule to update `README.md`, `INSTRUCTIONS.md`, and `reports.md` with timestamps and version notes after every change.
+
