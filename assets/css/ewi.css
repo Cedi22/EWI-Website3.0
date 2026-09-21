@@ -2075,20 +2075,79 @@ a.card:hover .card-icon{
   font-size:16px;
   transition:
     transform .28s var(--ease),
-    background .22s var(--ease);
+    background .22s var(--ease),
+    border-color .22s var(--ease);
 }
 
 .wa-float:hover{
   color:#fff;
   background:var(--color-accent-700);
+  border-color:color-mix(in srgb,#25d366 45%,#fff 25%);
   transform:translateY(-4px);
   text-decoration:none;
+}
+
+.btn-wa-icon{
+  width:18px;
+  height:18px;
+  vertical-align:middle;
+  display:inline-block;
+  object-fit:contain;
+  flex:none;
+  margin-right:7px;
+  filter:brightness(0) saturate(100%) invert(64%) sepia(87%) saturate(1917%) hue-rotate(101deg) brightness(96%) contrast(86%);
+}
+
+.btn-primary .btn-wa-icon{
+  filter:brightness(0) invert(1);
+}
+
+.btn-secondary .btn-wa-icon{
+  filter:brightness(0) saturate(100%) invert(64%) sepia(87%) saturate(1917%) hue-rotate(101deg) brightness(96%) contrast(86%);
+}
+
+.utility a .btn-wa-icon{
+  width:15px;
+  height:15px;
+  vertical-align:-2px;
+  margin-right:6px;
+  filter:brightness(0) saturate(100%) invert(64%) sepia(87%) saturate(1917%) hue-rotate(101deg) brightness(96%) contrast(86%);
+}
+
+.wa-float img,
+.wa-float .wa-icon{
+  width:24px;
+  height:24px;
+  flex:none;
+  display:inline-block;
+  vertical-align:middle;
+  object-fit:contain;
+  background:transparent;
+  filter:brightness(0) saturate(100%) invert(64%) sepia(87%) saturate(1917%) hue-rotate(101deg) brightness(96%) contrast(86%);
+  transition:transform .2s var(--ease);
 }
 
 .wa-float svg{
   width:22px;
   height:22px;
   flex:none;
+}
+
+.wa-float [class*="icon-"],
+.wa-float .icon-whatsapp{
+  width:24px;
+  height:24px;
+  flex:none;
+  background-color:#25d366;
+  display:inline-block;
+  transition:transform .2s var(--ease);
+}
+
+.wa-float:hover img,
+.wa-float:hover .wa-icon,
+.wa-float:hover .icon-whatsapp,
+.wa-float:hover [class*="icon-"]{
+  transform:scale(1.12);
 }
 
 @media (max-width:520px){

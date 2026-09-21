@@ -86,7 +86,7 @@ ewi5/
 1. **Editing Shared Components**:
    The top utility bar, main navigation header, and footer are mirrored across all **8 `.html` files** (`index.html`, `about.html`, `divisions.html`, `services.html`, `partners.html`, `clients.html`, `contact.html`, `404.html`). When modifying navigation links, phone numbers, WhatsApp links, or footer copy, you MUST update all 8 files.
 2. **Asset Versioning (Cache Busting)**:
-   When modifying `assets/css/ewi.css` or `assets/js/ewi.js`, bump the version query parameter (current: `?v=20260921.2`) across all 8 `.html` files to ensure browsers load the latest version.
+   When modifying `assets/css/ewi.css` or `assets/js/ewi.js`, bump the version query parameter (current: `?v=20260921.3`) across all 8 `.html` files to ensure browsers load the latest version.
 3. **No Frameworks**:
    Do not introduce heavy third-party CSS or JS frameworks (Tailwind, Bootstrap, jQuery, React, etc.). Maintain the lightweight, zero-dependency architecture.
 4. **MANDATORY CHANGE LOGGING & DOCUMENTATION UPDATE RULE**:
@@ -99,6 +99,14 @@ ewi5/
 ---
 
 ## Revision History & Changelog
+
+### Version `ewiv5-v2-10` — 2026-09-21 15:12 UTC+3
+- **Header Navigation Contact Us Button Cleaned**: Removed the WhatsApp icon from the desktop header navigation "Contact Us" CTA button (`.header-cta`) across all 8 HTML files (`index.html`, `about.html`, `divisions.html`, `services.html`, `partners.html`, `clients.html`, `contact.html`, `404.html`), restoring the clean text and chevron arrow (`Contact Us <i data-lucide="arrow-right"></i>`).
+
+### Version `ewiv5-v2-09` — 2026-09-21 15:10 UTC+3
+- **Floating WhatsApp Icon Display Fix**: Fixed the `.wa-float` icon display bug where `.wa-float img` / `.wa-icon` rendered as a solid green square box. Removed `background-color: #25d366` from `.wa-float img` and `.wa-float .wa-icon` so the transparent PNG canvas of `assets/icons/whatsapp.png` remains transparent while CSS filter properly tints the authentic speech bubble and phone handset in brand `#25D366` WhatsApp green.
+- **Floating Widget Proportions & Micro-Interactions**: Enhanced `.wa-float` with smooth border-color transition and subtle green hairline highlight on hover. Preserved responsive square badge mode (56x56) on mobile viewports (< 520px).
+- **Cache Busting**: Bumped asset cache version string across all 8 HTML files to `?v=20260921.3`.
 
 ### Version `ewiv5-v3-05` — 2026-09-21 11:00 UTC+3
 - **User-Friendly Contact Us Experience**: Replaced technical RFQ form on `contact.html` with an inviting, accessible "Get in touch with us!" form featuring human-centered labels (Your Name, Company / Organization (Optional), Email Address, Phone Number, Topic dropdown, Subject, Your Message).
@@ -117,6 +125,27 @@ ewi5/
 - **Icon Architecture Expansion**: Integrated communication icons `whatsapp.png`, `mail.png`, `messenger.png`, and `telephone.png` in `assets/icons/` and embedded them as Base64 data URIs in `assets/css/ewi.css` (`.icon-whatsapp`, `.icon-mail`, `.icon-messenger`, `.icon-telephone`), bringing the total embedded icon count to 26.
 - **Sitemap**: Added `https://www.eastwestint.qa/contact.html` to `sitemap.xml`.
 - **Operating Protocol**: Established mandatory rule to update `README.md`, `INSTRUCTIONS.md`, and `reports.md` with timestamps and version notes after every change.
+
+### Version `ewiv5-v2-08` — 2026-09-21 14:56 UTC+3
+- **Direct WhatsApp.png Icon Integration**: Embedded the authentic high-resolution `assets/icons/whatsapp.png` image directly across all desktop Contact Us buttons, header CTA buttons, homepage hero actions, and the floating `.wa-float` WhatsApp widget on all 8 pages.
+- **Button Micro-Styling & Color Tuning**: Added `.btn-wa-icon` styles in `assets/css/ewi.css` with automatic color inversion for dark primary buttons (`filter: brightness(0) invert(1)`) and authentic `#25D366` WhatsApp green tuning on floating and secondary buttons.
+
+### Version `ewiv5-v2-07` — 2026-09-21 14:50 UTC+3
+- **Preserved Core Slogan**: Restored EWI's signature animated slogan "Excellence through Innovation" on `index.html` with data attributes (`data-slogan-word="excellence"`, `through`, `innovation`) and animated keyframes in `ewi.css`.
+- **Streamlined & Uncluttered Contact Us**: Re-engineered `contact.html` into a simple, unified, two-column layout ("Get in touch with us") without redundant floating cards; features quick form on the left and direct contact channels (Phone, WhatsApp, Email, Hours, Address) + Google Map on the right.
+- **CTA Unified to Contact Us**: Replaced all remaining instances of "Request a Quote" with "Contact Us".
+- **Floating WhatsApp Icon Update**: Updated `.wa-float` across all 8 HTML files to use the official WhatsApp mask icon (`.icon-whatsapp`) with dedicated `#25d366` WhatsApp green mask styling and hover micro-interaction.
+- **Skim-Optimized UX**: Strengthened scannability across the site with prominent numbering, concise copy, and clear visual hierarchy for visitors seeking rapid answers.
+
+### Version `ewiv5-v2-06` — 2026-09-21 14:38 UTC+3
+- **Qatar Business Copywriting Overhaul**: Completely rewrote all page copy across all 8 HTML files (`index.html`, `about.html`, `divisions.html`, `services.html`, `partners.html`, `clients.html`, `contact.html`, `404.html`) to sound authentic, human, and grounded in local Qatar commercial trading reality.
+- **Removed AI Buzzwords & Marketing Clichés**: Stripped out buzzwords ("seamless", "cutting-edge", "revolutionary", "innovative solutions", "unlock potential", "next level", "empower", "transform", "end-to-end", "bespoke", "leveraging", "robust", "scalable", "at the forefront", "redefining", "elevate", "navigate the landscape") and eliminated all em dashes.
+- **Direct Practical Qatar Business Style**: Modeled after leading Doha corporate business styles (Helpline Translation, Alot Solutions) with short, clear sentences stating exactly what EWI does, its 4 divisions, procurement processes, Doha stock, and support for Qatar contractors and institutions.
+
+### Version `ewiv5-v2-05` — 2026-09-21 11:00 UTC+3
+- **User-Friendly Contact Us Experience**: Replaced technical RFQ form on `contact.html` with an inviting, accessible "Get in touch with us!" form featuring human-centered labels (Your Name, Company / Organization (Optional), Email Address, Phone Number, Topic dropdown, Subject, Your Message).
+- **Communication Channel Icons**: Wired direct communication cards to dedicated icons in `assets/icons/` (`telephone.png`, `whatsapp.png`, `messenger.png`, `mail.png`).
+- **Streamlined Layout**: Removed specialized division desk cards from `contact.html` to optimize page clarity.
 
 ### Version `ewiv5-v3-03` — 2026-09-21 06:45 UTC+3
 - **Media & Asset Optimization**: Hero background video compressed and optimized (`0909_compress_optimized.mp4`).
