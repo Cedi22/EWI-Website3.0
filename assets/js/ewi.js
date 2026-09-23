@@ -3,6 +3,7 @@
   'use strict';
 
   var d = document;
+  if (d.documentElement) d.documentElement.classList.add('js');
   var finishLoading = function () {
     if (d.body) d.body.classList.remove('is-loading');
   };
@@ -320,33 +321,268 @@
   /* ---- contact form handler ------------------------------------------ */
   var contactForm = d.getElementById('contact-form');
   var successAlert = d.getElementById('form-success');
+  var errorAlert = d.getElementById('form-error');
+  var errorList = d.getElementById('form-error-list');
+  var copyBtn = d.getElementById('btn-copy-inquiry');
+  var copyStatus = d.getElementById('copy-status');
+
   if (contactForm && successAlert) {
+    var nameInput = d.getElementById('cf-name');
+    var emailInput = d.getElementById('cf-email');
+    var phoneInput = d.getElementById('cf-phone');
+    var companyInput = d.getElementById('cf-company');
+    var divisionInput = d.getElementById('cf-division');
+    var messageInput = d.getElementById('cf-message');
+
+    // Real-time error removal on input
+    [nameInput, emailInput, phoneInput, messageInput].forEach(function (input) {
+      if (!input) return;
+      input.addEventListener('input', function () {
+        input.classList.remove('is-invalid');
+        var errSpan = d.getElementById('err-' + input.id);
+        if (errSpan) errSpan.classList.remove('is-visible');
+        if (errorAlert) errorAlert.classList.remove('is-visible');
+      });
+    });
+
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = (d.getElementById('cf-name') || {}).value || '';
-      var email = (d.getElementById('cf-email') || {}).value || '';
-      var phone = (d.getElementById('cf-phone') || {}).value || '';
-      var company = (d.getElementById('cf-company') || {}).value || '';
-      var division = (d.getElementById('cf-division') || {}).value || 'General Inquiry';
-      var subject = (d.getElementById('cf-subject') || {}).value || ('Message from ' + (name || 'Website Visitor'));
-      var message = (d.getElementById('cf-message') || {}).value || '';
 
-      var body = 'Name: ' + name + '\n' +
-                 (company ? ('Company: ' + company + '\n') : '') +
-                 'Email: ' + email + '\n' +
-                 'Phone: ' + phone + '\n' +
-                 'Topic / Division: ' + division + '\n\n' +
-                 'Message:\n' + message;
+      var errors = [];
+      var firstInvalid = null;
 
+      var nameVal = (nameInput ? nameInput.value : '').trim();
+      var emailVal = (emailInput ? emailInput.value : '').trim();
+      var phoneVal = (phoneInput ? phoneInput.value : '').trim();
+      var companyVal = (companyInput ? companyInput.value : '').trim();
+      var divisionVal = (divisionInput ? divisionInput.value : 'General Inquiry').trim();
+      var messageVal = (messageInput ? messageInput.value : '').trim();
+
+      // Clear previous error states
+      [nameInput, emailInput, phoneInput, messageInput].forEach(function (input) {
+        if (!input) return;
+        input.classList.remove('is-invalid');
+        var errSpan = d.getElementById('err-' + input.id);
+        if (errSpan) errSpan.classList.remove('is-visible');
+      });
+
+      // Validation 1: Name
+      if (!nameVal) {
+        errors.push({ id: 'cf-name', msg: 'Please provide your name.' });
+        if (nameInput) nameInput.classList.add('is-invalid');
+        var errName = d.getElementById('err-cf-name');
+        if (errName) errName.classList.add('is-visible');
+        if (!firstInvalid) firstInvalid = nameInput;
+      }
+
+      // Validation 2: Email
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailVal) {
+        errors.push({ id: 'cf-email', msg: 'Please provide an email address.' });
+        if (emailInput) emailInput.classList.add('is-invalid');
+        var errEmail = d.getElementById('err-cf-email');
+        if (errEmail) errEmail.classList.add('is-visible');
+        if (!firstInvalid) firstInvalid = emailInput;
+      } else if (!emailRegex.test(emailVal)) {
+        errors.push({ id: 'cf-email', msg: 'Please enter a valid email address (e.g. name@company.qa).' });
+        if (emailInput) emailInput.classList.add('is-invalid');
+        var errEmailInvalid = d.getElementById('err-cf-email');
+        if (errEmailInvalid) {
+          errEmailInvalid.textContent = 'Please enter a valid email address';
+          errEmailInvalid.classList.add('is-visible');
+        }
+        if (!firstInvalid) firstInvalid = emailInput;
+      }
+
+      // Validation 3: Phone
+      if (!phoneVal) {
+        errors.push({ id: 'cf-phone', msg: 'Please provide a telephone or WhatsApp number.' });
+        if (phoneInput) phoneInput.classList.add('is-invalid');
+        var errPhone = d.getElementById('err-cf-phone');
+        if (errPhone) errPhone.classList.add('is-visible');
+        if (!firstInvalid) firstInvalid = phoneInput;
+      }
+
+      // Validation 4: Message
+      if (!messageVal) {
+        errors.push({ id: 'cf-message', msg: 'Please describe your inquiry or project requirements.' });
+        if (messageInput) messageInput.classList.add('is-invalid');
+        var errMessage = d.getElementById('err-cf-message');
+        if (errMessage) errMessage.classList.add('is-visible');
+        if (!firstInvalid) firstInvalid = messageInput;
+      }
+
+      // Handle Errors
+      if (errors.length > 0) {
+        if (errorAlert && errorList) {
+          errorList.innerHTML = '';
+          errors.forEach(function (err) {
+            var li = d.createElement('li');
+            li.textContent = err.msg;
+            errorList.appendChild(li);
+          });
+          errorAlert.classList.add('is-visible');
+          errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      // All Valid
+      if (errorAlert) errorAlert.classList.remove('is-visible');
+
+      var emailSubject = '[' + divisionVal + '] Inquiry from ' + nameVal;
+      var body = 'Name: ' + nameVal + '\n' +
+                 (companyVal ? ('Company / Organization: ' + companyVal + '\n') : '') +
+                 'Email: ' + emailVal + '\n' +
+                 'Phone: ' + phoneVal + '\n' +
+                 'Division / Topic: ' + divisionVal + '\n\n' +
+                 'Message:\n' + messageVal;
+
+      var encodedSub = encodeURIComponent(emailSubject);
+      var encodedBody = encodeURIComponent(body);
       var mailtoUrl = 'mailto:eastwest@qatar.net.qa' +
-                      '?subject=' + encodeURIComponent('[' + division + '] ' + subject) +
-                      '&body=' + encodeURIComponent(body);
+                      '?subject=' + encodedSub +
+                      '&body=' + encodedBody;
+
+      // Populate Webmail & WhatsApp action buttons
+      var gmailBtn = d.getElementById('btn-open-gmail');
+      if (gmailBtn) {
+        gmailBtn.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=eastwest@qatar.net.qa&su=' + encodedSub + '&body=' + encodedBody;
+      }
+      var outlookBtn = d.getElementById('btn-open-outlook');
+      if (outlookBtn) {
+        outlookBtn.href = 'https://outlook.office.com/mail/deeplink/compose?to=eastwest@qatar.net.qa&subject=' + encodedSub + '&body=' + encodedBody;
+      }
+      var waFormBtn = d.getElementById('btn-send-whatsapp');
+      if (waFormBtn) {
+        var waMessage = '*[' + divisionVal + '] Inquiry from ' + nameVal + '*\n\n' + body;
+        waFormBtn.href = 'https://wa.me/97470497307?text=' + encodeURIComponent(waMessage);
+      }
 
       successAlert.classList.add('is-visible');
       successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      drawIcons();
+
+      // Setup Fallback Copy Button
+      if (copyBtn) {
+        copyBtn.onclick = function () {
+          var fullText = 'Subject: ' + emailSubject + '\n\n' + body;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(fullText).then(function () {
+              if (copyStatus) copyStatus.textContent = 'Copied to clipboard!';
+              setTimeout(function () { if (copyStatus) copyStatus.textContent = ''; }, 4000);
+            }).catch(function () {
+              prompt('Copy your inquiry details below:', fullText);
+            });
+          } else {
+            prompt('Copy your inquiry details below:', fullText);
+          }
+        };
+      }
 
       // Trigger mailto client
-      window.location.href = mailtoUrl;
+      try {
+        window.location.href = mailtoUrl;
+      } catch (err) {}
+    });
+  }
+
+  /* ---- solutions accordion (About page) ------------------------------ */
+  var accordionCards = d.querySelectorAll('.accordion-card');
+  if (accordionCards.length) {
+    Array.prototype.forEach.call(accordionCards, function (card) {
+      var btn = card.querySelector('.accordion-toggle');
+      var icon = card.querySelector('.accordion-icon');
+      if (!btn) return;
+
+      var toggleCard = function (open) {
+        var isOpen = typeof open === 'boolean' ? open : !card.classList.contains('is-expanded');
+        card.classList.toggle('is-expanded', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+        if (icon) {
+          icon.src = isOpen ? 'assets/icons/up.png' : 'assets/icons/down.png';
+          icon.alt = isOpen ? 'Collapse details' : 'Expand details';
+        }
+      };
+
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleCard();
+      });
+    });
+
+    /* Auto-expand accordion if URL has matching hash on load or hashchange */
+    var handleHash = function () {
+      var hash = window.location.hash;
+      if (!hash) return;
+      var target = d.querySelector(hash);
+      if (target) {
+        var targetCard = target.closest('.accordion-card') || (target.classList.contains('accordion-card') ? target : null);
+        if (targetCard) {
+          var btn = targetCard.querySelector('.accordion-toggle');
+          var icon = targetCard.querySelector('.accordion-icon');
+          targetCard.classList.add('is-expanded');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+          if (icon) {
+            icon.src = 'assets/icons/up.png';
+            icon.alt = 'Collapse details';
+          }
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+  }
+
+  /* ---- card ellipsis expander ----------------------------------------- */
+  var expandBtns = d.querySelectorAll('.card-expand-btn');
+  Array.prototype.forEach.call(expandBtns, function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var card = btn.closest('.card');
+      if (!card) return;
+      var isExpanded = card.classList.contains('is-expanded');
+      card.classList.toggle('is-expanded', !isExpanded);
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      btn.textContent = !isExpanded ? 'Less' : '...';
+      btn.setAttribute('aria-label', !isExpanded ? 'Show less' : 'Expand description');
+    });
+  });
+
+  /* ---- back to top (floating, bottom-left, footer approach trigger) --- */
+  var topButtons = d.querySelectorAll('.back-to-top');
+  var footerEl = d.querySelector('.site-footer');
+  if (topButtons.length) {
+    var updateTopVisibility = function (visible) {
+      Array.prototype.forEach.call(topButtons, function (btn) {
+        btn.classList.toggle('is-visible', visible);
+      });
+    };
+
+    if (footerEl && 'IntersectionObserver' in window) {
+      var topObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          updateTopVisibility(entry.isIntersecting);
+        });
+      }, { rootMargin: '300px 0px 0px 0px', threshold: 0 });
+      topObserver.observe(footerEl);
+    } else {
+      var onScrollTop = function () {
+        var scrollPos = window.scrollY || d.documentElement.scrollTop;
+        var docHeight = d.documentElement.scrollHeight - window.innerHeight;
+        var nearBottom = docHeight > 0 && (docHeight - scrollPos < 600);
+        updateTopVisibility(nearBottom);
+      };
+      window.addEventListener('scroll', onScrollTop, { passive: true });
+    }
+
+    Array.prototype.forEach.call(topButtons, function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     });
   }
 

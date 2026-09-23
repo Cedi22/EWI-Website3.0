@@ -41,7 +41,7 @@
   <link rel="preload" href="assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/barlow-condensed-600.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="assets/css/ewi.css?v=20260921.3">
+  <link rel="stylesheet" href="assets/css/ewi.css?v=20260923.7">
   <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">
 [
@@ -163,7 +163,6 @@
         </ul>
         <div class="nav-cta">
           <a class="btn btn-primary btn-block" href="contact.html">Contact Us</a>
-          <a class="btn btn-secondary btn-block" href="https://wa.me/97470497307">WhatsApp us</a>
         </div>
       </nav>
 
@@ -201,9 +200,29 @@
               <p>Leave your details and requirements. We will reply promptly.</p>
             </div>
 
+            <div class="form-error-alert" id="form-error" role="alert" aria-live="assertive">
+              <strong>Please complete the required fields:</strong>
+              <ul id="form-error-list"></ul>
+            </div>
+
             <div class="form-success-alert" id="form-success" role="alert">
-              <h3>Message Ready to Send</h3>
-              <p>Your email client has opened with your inquiry pre-filled. You can also chat with us directly on WhatsApp at <strong>+974 7049 7307</strong>.</p>
+              <h3>Inquiry Prepared Successfully</h3>
+              <p>Your inquiry is formatted and ready to send. Select your preferred transmission channel to deliver it directly to our Doha engineering desk:</p>
+              <div class="form-delivery-actions" style="margin-top:var(--space-3); display:flex; flex-wrap:wrap; gap:10px;">
+                <a href="#" id="btn-open-gmail" class="btn-copy-fallback" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                  <i data-lucide="mail"></i> Open in Gmail
+                </a>
+                <a href="#" id="btn-open-outlook" class="btn-copy-fallback" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                  <i data-lucide="mail"></i> Open in Outlook 365
+                </a>
+                <a href="#" id="btn-send-whatsapp" class="btn-copy-fallback" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                  <img src="assets/icons/whatsapp.png" alt="" class="btn-wa-icon" width="16" height="16" aria-hidden="true"> Send via WhatsApp
+                </a>
+                <button type="button" class="btn-copy-fallback" id="btn-copy-inquiry">
+                  <i data-lucide="copy"></i> Copy to clipboard
+                </button>
+              </div>
+              <span id="copy-status" style="display:block; margin-top:8px; font-size:13px; color:var(--color-accent-900); font-weight:600;" aria-live="polite"></span>
             </div>
 
             <form id="contact-form" novalidate>
@@ -211,6 +230,7 @@
                 <div class="field">
                   <label for="cf-name">Your Name <span class="req">*</span></label>
                   <input class="input" type="text" id="cf-name" name="name" placeholder="Full name" required>
+                  <span class="field-error" id="err-cf-name">Please provide your name</span>
                 </div>
                 <div class="field">
                   <label for="cf-company">Company / Organization <small class="text-muted">(Optional)</small></label>
@@ -222,10 +242,12 @@
                 <div class="field">
                   <label for="cf-email">Email Address <span class="req">*</span></label>
                   <input class="input" type="email" id="cf-email" name="email" placeholder="name@company.qa" required>
+                  <span class="field-error" id="err-cf-email">Please provide a valid email address</span>
                 </div>
                 <div class="field">
                   <label for="cf-phone">Phone / WhatsApp <span class="req">*</span></label>
                   <input class="input" type="tel" id="cf-phone" name="phone" placeholder="+974 ...." required>
+                  <span class="field-error" id="err-cf-phone">Please provide a phone or WhatsApp number</span>
                 </div>
               </div>
 
@@ -243,6 +265,7 @@
               <div class="field">
                 <label for="cf-message">Your Message <span class="req">*</span></label>
                 <textarea class="input" id="cf-message" name="message" rows="4" placeholder="How can we help with your project or inquiry?" required></textarea>
+                <span class="field-error" id="err-cf-message">Please enter your message or project requirements</span>
                 <span class="field-hint">Need to attach drawings or BOQs? Send your message and our team will reply to collect your files.</span>
               </div>
 
@@ -263,7 +286,7 @@
             <div class="card blueprint reveal" style="padding:var(--space-6); background:var(--color-surface);">
               <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
               <p class="kicker">Direct Contact</p>
-              <h3 style="font-size:22px; margin-bottom:var(--space-4);">Reach our Doha team</h3>
+              <h3>Reach our Doha team</h3>
 
               <ul class="office-details-list" style="margin-bottom:0;">
                 <li>
@@ -354,6 +377,7 @@
             <li><a href="partners.html"><i data-lucide="chevron-right"></i>Partners</a></li>
             <li><a href="clients.html"><i data-lucide="chevron-right"></i>Clients</a></li>
             <li><a href="contact.html"><i data-lucide="chevron-right"></i>Contact us</a></li>
+            <li><a href="privacy.html"><i data-lucide="chevron-right"></i>Privacy Policy</a></li>
           </ul>
         </div>
 
@@ -372,7 +396,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> East West Trading International. All rights reserved.</span>
+        <span>&copy; <span data-year>2026</span> East West Trading International. All rights reserved. &bull; <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy Policy</a></span>
         <div class="social">
           <a href="https://www.linkedin.com/company/eastwest-trading-int-l/" aria-label="EWI on LinkedIn"><i
               data-lucide="linkedin"></i></a>
@@ -382,12 +406,16 @@
     </div>
   </footer>
 
+  <a class="back-to-top" href="#main" aria-label="Back to top">
+    <img src="assets/icons/top.png" alt="" class="top-icon" width="16" height="16" aria-hidden="true">
+  </a>
+
   <a class="wa-float" href="https://wa.me/97470497307" aria-label="Chat with EWI on WhatsApp">
     <img src="assets/icons/whatsapp.png" alt="WhatsApp" class="wa-icon" width="24" height="24" aria-hidden="true"><span>WhatsApp</span>
   </a>
 
   <script src="assets/js/lucide.min.js"></script>
-  <script src="assets/js/ewi.js?v=20260921.3"></script>
+  <script src="assets/js/ewi.js?v=20260923.7"></script>
 </body>
 
 </html>

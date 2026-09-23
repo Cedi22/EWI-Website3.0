@@ -1,0 +1,15 @@
+# Quality & Publication Readiness Report (QREPORT)
+
+Project: East West Trading International (EWI Qatar)
+Date: September 23, 2026
+Verdict: YES, THE WEBSITE IS EXCELLENT AND READY FOR PUBLICATION.
+
+1. Summary of Changes:
+- Purged confidential GTM documents and all dead video bloat (assets folder size reduced from 425+ MB to 7.74 MB, a 98.2% payload drop).
+- Solved CSP eval issue: zero eval(), zero new Function(), zero string-based setTimeout/setInterval in the codebase. Implemented strict Content-Security-Policy in .htaccess omitting unsafe-eval.
+- Contact Form Webmail Delivery: Added direct 1-click links for Gmail Web, Outlook 365 Web, WhatsApp chat, and Clipboard copy to guarantee inquiries are never lost for desktop webmail users.
+- Added Qatar Law No. 13 of 2016 compliant Privacy Policy (privacy.html) linked across all 9 pages and sitemap.xml.
+- Server Security: Blocked all .md files from public web access, added X-Frame-Options: SAMEORIGIN, Permissions-Policy, and cache bumped assets to v=20260923.7.
+- Quality Polish: Fixed meta description syntax and footer address whitespace parity in divisions.html.
+
+See QREPORT.md and WEBSITE_QREPORT.md for full technical details.

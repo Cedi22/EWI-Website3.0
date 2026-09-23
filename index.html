@@ -41,7 +41,7 @@
   <link rel="preload" href="assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/barlow-condensed-600.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="assets/css/ewi.css?v=20260921.3">
+  <link rel="stylesheet" href="assets/css/ewi.css?v=20260923.7">
   <script>document.documentElement.className += ' js';</script>
   <script type="application/ld+json">
 [
@@ -232,9 +232,9 @@
         </ul>
         <div class="nav-cta">
           <a class="btn btn-primary btn-block" href="contact.html">Contact Us</a>
-          <a class="btn btn-secondary btn-block" href="https://wa.me/97470497307">WhatsApp us</a>
         </div>
-      </nav>      <a class="btn btn-primary header-cta" href="contact.html">
+      </nav>
+      <a class="btn btn-primary header-cta" href="contact.html">
         Contact Us <i data-lucide="arrow-right"></i>
       </a>
     </div>
@@ -244,21 +244,22 @@
 
     <section class="hero hero--video" aria-label="East West Trading International">
       <div class="hero-video-wrap">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto"
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata"
           poster="assets/slides/homepage/Doha-Metro-tunnel.webp">
-          <source src="assets/video/0909_compress_optimized.mp4" type="video/mp4">
+          <source src="assets/video/0.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="wrap">      <div class="hero-video-caption">
-        <h1 class="slogan"><span class="word-gold slogan-word" data-slogan-word="excellence">Excellence</span> <span class="word-white slogan-word" data-slogan-word="through">through</span> <span class="word-accent slogan-word" data-slogan-word="innovation">Innovation</span></h1>
-        <p style="font-size:1.15rem; max-width:760px; margin:var(--space-4) auto var(--space-6); color:#f2f2f3; line-height:1.5;">Supplying laboratory systems, electrical site supplies, network infrastructure, and cyber security platforms across Qatar since 2002.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="contact.html"><img src="assets/icons/whatsapp.png" alt="" class="btn-wa-icon" width="18" height="18" aria-hidden="true"> Contact Us</a>
-          <a class="btn btn-secondary" href="divisions.html">View Our Divisions</a>
+      <div class="wrap">
+        <div class="hero-video-caption">
+          <h1 class="slogan"><span class="word-gold slogan-word" data-slogan-word="excellence">Excellence</span> <span class="word-white slogan-word" data-slogan-word="through">through</span> <span class="word-accent slogan-word" data-slogan-word="innovation">Innovation</span></h1>
+          <p class="hero-caption">Engineering Qatar's Landmark Infrastructure</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="divisions.html">View Our Divisions <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn-secondary" href="contact.html">Contact Us</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <section class="divisions-strip" aria-label="Our divisions">
     <div class="wrap">
@@ -268,8 +269,8 @@
         <img class="div-icon" src="assets/icons/lab.png" alt="Lab Systems logo" loading="lazy" width="40" height="40">
         <span class="num">01 / LAB SYSTEMS</span>
         <h3>Lab Systems</h3>
-        <p>We supply and install complete laboratory setups, analytical instruments, fume extraction hoods, and lab furniture for research, healthcare, and industrial testing facilities.</p>
-        <span class="arrow-link">View Lab Systems <i data-lucide="arrow-right"></i></span>
+        <p>Complete laboratory setups, analytical instruments, fume extraction hoods, and specialized casework.</p>
+        <span class="arrow-link">Learn More <i data-lucide="arrow-right"></i></span>
       </a>
 
       <a class="div-card blueprint reveal" href="divisions.html#electrical">
@@ -278,8 +279,8 @@
           width="40" height="40">
         <span class="num">02 / ELECTRICAL</span>
         <h3>Electrical Division</h3>
-        <p>We keep local stock of cable management trays, weatherproof enclosures, terminal blocks, wire markers, and site tools for building and industrial maintenance projects.</p>
-        <span class="arrow-link">View Electrical Division <i data-lucide="arrow-right"></i></span>
+        <p>Fast-moving cable trays, weatherproof enclosures, terminal blocks, wire markers, and site tools.</p>
+        <span class="arrow-link">Learn More <i data-lucide="arrow-right"></i></span>
       </a>
 
       <a class="div-card blueprint reveal" href="divisions.html#network">
@@ -288,8 +289,8 @@
           width="40" height="40">
         <span class="num">03 / NETWORK &amp; DATA CENTRE</span>
         <h3>Network &amp; Data Centre</h3>
-        <p>We deliver structured copper and fibre optic cabling, enterprise switches, server racks, and modular data centre units for corporate and facility networks.</p>
-        <span class="arrow-link">View Network &amp; Data Centre <i data-lucide="arrow-right"></i></span>
+        <p>Structured copper, optical fibre cabling, enterprise switches, and modular server room units.</p>
+        <span class="arrow-link">Learn More <i data-lucide="arrow-right"></i></span>
       </a>
 
       <a class="div-card blueprint reveal" href="divisions.html#cyber">
@@ -298,8 +299,8 @@
           height="40">
         <span class="num">04 / CYBER SECURITY</span>
         <h3>Cyber Security</h3>
-        <p>We supply network capture hardware and threat detection software. Our engineers install, configure, and connect each system to your existing security team.</p>
-        <span class="arrow-link">View Cyber Security <i data-lucide="arrow-right"></i></span>
+        <p>Network visibility hardware, packet brokers, and threat detection platforms with local support.</p>
+        <span class="arrow-link">Learn More <i data-lucide="arrow-right"></i></span>
       </a>
     </div>
   </section>
@@ -350,7 +351,7 @@
         </div>
         <figure class="figure blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <img src="assets/placeholders/warehouse-placeholder.jpeg" alt="EWI warehouse and stock facility in Doha">
+          <img src="assets/placeholders/warehouse-placeholder.jpeg" alt="EWI warehouse and stock facility in Doha" width="547" height="365" loading="lazy">
         </figure>
       </div>
     </div>
@@ -369,50 +370,52 @@
       <div class="grid grid-3">
         <div class="card blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <i class="card-icon icon-box"></i>
-          <h3>Material supply and tendering</h3>
-          <p>We quote directly from your bill of quantities, prepare technical submittals for consultant approval, and schedule deliveries to match your construction schedule.</p>
-        </div>
-        <div class="card blueprint reveal">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-turnkey"></i>
-          <h4>Turnkey laboratory fit out</h4>
-          <p>We supply the complete laboratory package, including space planning, fume hoods, benching, gas lines, and specialized test equipment.</p>
-        </div>
-        <div class="card blueprint reveal">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <i class="card-icon icon-installation"></i>
-          <h3>Site installation and commissioning</h3>
-          <p>Our technicians handle site installation, verify connections, conduct qualification tests, and complete formal handover paperwork.</p>
-        </div>
-        <div class="card blueprint reveal">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <i class="card-icon icon-gauge"></i>
-          <h3>Maintenance and calibration</h3>
-          <p>We provide scheduled preventive maintenance, equipment calibration, and spare parts support to keep your facilities running without stoppage.</p>
+          <h3>Lab Systems</h3>
+          <p>Turnkey laboratory design, fume extraction hoods, scientific casework, and analytical testing instruments.</p>
+          <a class="arrow-link" href="about.html#lab-systems">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="card blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-electrical-materials"></i>
-          <h4>Electrical site materials</h4>
-          <p>We supply conduit, fittings, industrial enclosures, terminal connectors, and labeling tools straight from our warehouse in Doha.</p>
+          <h3>Electrical Supplies</h3>
+          <p>Local stock of cable management trays, weatherproof enclosures, terminal blocks, and job-site tooling.</p>
+          <a class="arrow-link" href="about.html#electrical-supplies">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="card blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-data-center"></i>
-          <h4>Structured cabling and server rooms</h4>
-          <p>We provide copper network cables, fibre backbones, patch panels, and modular server room setups with BDCOM and FABNET equipment.</p>
+          <h3>Network Infrastructure</h3>
+          <p>Structured copper, optical fibre cabling, enterprise switches, and modular server room installations.</p>
+          <a class="arrow-link" href="about.html#network-infrastructure">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="card blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-cybersecurity"></i>
-          <h4>Cyber security deployment</h4>
-          <p>Our engineers configure network traffic taps and threat detection tools, connect them with your monitoring system, and train your staff.</p>
+          <h3>Cyber Security</h3>
+          <p>Network traffic capture hardware, packet brokers, and threat detection platforms with local engineering support.</p>
+          <a class="arrow-link" href="about.html#cyber-security">Learn More <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="card blueprint reveal">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <i class="card-icon icon-installation"></i>
+          <h3>Site Installation</h3>
+          <p>Qualified technicians handling mechanical setup, equipment calibration, and formal handover paperwork.</p>
+          <a class="arrow-link" href="about.html#site-installation">Learn More <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="card blueprint reveal">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <i class="card-icon icon-gauge"></i>
+          <h3>Maintenance &amp; Calibration</h3>
+          <p>Scheduled preventive servicing, certified instrument calibration, and genuine replacement parts support.</p>
+          <a class="arrow-link" href="about.html#maintenance-calibration">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
       </div>
 
-      <p style="margin-top:var(--space-8)"><a class="arrow-link" href="services.html">View all services <i
-            data-lucide="arrow-right"></i></a></p>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-4); margin-top:var(--space-8);">
+        <a class="arrow-link" href="services.html">View all engineering services <i data-lucide="arrow-right"></i></a>
+        <a class="btn btn-secondary" href="contact.html"><span class="u-desktop-label">Request Technical Consultation</span><span class="u-mobile-label">Request Consultation</span></a>
+      </div>
     </div>
   </section>
 
@@ -518,25 +521,29 @@
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-moving-truck"></i>
           <h3>Local stock in Doha</h3>
-          <p>We store fast moving materials in Doha. When your site needs extra cable trays, enclosures, or replacement parts, you do not have to wait for international shipping.</p>
+          <p>Doha warehouse inventory for immediate site delivery without international shipping delays.</p>
+          <a class="arrow-link" href="about.html">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="card blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-persons"></i>
           <h3>Qualified engineers on staff</h3>
-          <p>You deal directly with engineers who understand local project specifications, tender requirements, and consultant approvals.</p>
+          <p>In-house sales and service engineers dedicated to specifications, approvals, and on-site support.</p>
+          <a class="arrow-link" href="about.html">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="card blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-authorize"></i>
           <h3>Official manufacturer warranty</h3>
-          <p>Because we work directly with our manufacturing partners, every product comes with authentic factory warranties and direct technical backup.</p>
+          <p>Direct partnerships with global manufacturers guarantee authentic products and factory warranties.</p>
+          <a class="arrow-link" href="partners.html">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="card blueprint reveal">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <i class="card-icon icon-location"></i>
           <h3>Registered Qatari company</h3>
-          <p>We are a registered local business with the commercial licenses, safety approvals, and vendor registrations required for public and private tenders.</p>
+          <p>Fully licensed with all commercial approvals required for public tenders and major projects.</p>
+          <a class="arrow-link" href="about.html">Learn More <i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -552,7 +559,7 @@
       </div>
       <div class="cta-actions reveal">
         <a class="btn btn-primary btn-block"
-          href="mailto:eastwest@qatar.net.qa?subject=Enquiry%20from%20eastwestint.qa">Email eastwest@qatar.net.qa</a>
+          href="mailto:eastwest@qatar.net.qa?subject=Enquiry%20from%20eastwestint.qa"><span class="u-desktop-label">Email eastwest@qatar.net.qa</span><span class="u-mobile-label">Email Our Team</span></a>
         <a class="btn btn-secondary btn-block" href="https://wa.me/97470497307"><img src="assets/icons/whatsapp.png" alt="" class="btn-wa-icon" width="18" height="18" aria-hidden="true">WhatsApp +974 7049 7307</a>
         <a class="btn btn-secondary btn-block" href="tel:+97444654878">Call +974 4465 4878</a>
       </div>
@@ -588,6 +595,7 @@
             <li><a href="partners.html"><i data-lucide="chevron-right"></i>Partners</a></li>
             <li><a href="clients.html"><i data-lucide="chevron-right"></i>Clients</a></li>
             <li><a href="contact.html"><i data-lucide="chevron-right"></i>Contact us</a></li>
+            <li><a href="privacy.html"><i data-lucide="chevron-right"></i>Privacy Policy</a></li>
           </ul>
         </div>
 
@@ -606,7 +614,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> East West Trading International. All rights reserved.</span>
+        <span>&copy; <span data-year>2026</span> East West Trading International. All rights reserved. &bull; <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy Policy</a></span>
         <div class="social">
           <a href="https://www.linkedin.com/company/eastwest-trading-int-l/" aria-label="EWI on LinkedIn"><i
               data-lucide="linkedin"></i></a>
@@ -616,12 +624,16 @@
     </div>
   </footer>
 
+  <a class="back-to-top" href="#main" aria-label="Back to top">
+    <img src="assets/icons/top.png" alt="" class="top-icon" width="16" height="16" aria-hidden="true">
+  </a>
+
   <a class="wa-float" href="https://wa.me/97470497307" aria-label="Chat with EWI on WhatsApp">
     <img src="assets/icons/whatsapp.png" alt="WhatsApp" class="wa-icon" width="24" height="24" aria-hidden="true"><span>WhatsApp</span>
   </a>
 
   <script src="assets/js/lucide.min.js"></script>
-  <script src="assets/js/ewi.js?v=20260921.3"></script>
+  <script src="assets/js/ewi.js?v=20260923.7"></script>
 </body>
 
 </html>
